@@ -11,8 +11,10 @@
         </v-card-title>
         <v-data-table :headers="headers" :items="items" :search="search">
             <template v-slot:[`item.name`]="{ item }">
-                <div class="name" @click.stop="pushOtherPage">
-                    {{ item.name }}
+                <div class="name">
+                    <router-link :to="{ path: '/hike/' + item.id }">
+                        {{ item.name }}
+                    </router-link>
                 </div>
             </template>
             <template v-slot:[`item.track`]="{ item }">
@@ -58,12 +60,6 @@ export default {
             .catch((err) => {
                 console.error(err);
             });
-    },
-    methods: {
-        pushOtherPage() {
-            console.log("click in name column");
-            this.$router.push({ name: "other-page" });
-        },
     },
 };
 </script>

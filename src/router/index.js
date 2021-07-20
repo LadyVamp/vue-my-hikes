@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import HikeDetails from '@/components/Hike/HikeDetails'
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    redirect: '/hikes',
-  },
+  { path: '/', redirect: '/hikes' },
+  { path: '*', redirect: '/hikes' },
   {
     path: '/hikes',
     name: 'Hikes',
@@ -18,6 +17,10 @@ const routes = [
     props: {
       label: 'Реестр походов',
     },
+  },
+  {
+    path: '/hike/:id',
+    component: HikeDetails
   },
 ];
 
