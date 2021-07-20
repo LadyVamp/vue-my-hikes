@@ -1,12 +1,21 @@
 <template>
     <div>
-        <h1 v-if="$route.params.id">{{ $route.params.id }}</h1>
+        <h2>{{ item.name }}</h2>
+        <p>Страна: {{ item.country }}</p>
+        <p>Даты: {{ item.dates }}</p>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
-            soluta illum, rem dolores dignissimos mollitia tempore quos
-            inventore eum pariatur dolorum labore sapiente consequuntur, qui
-            deleniti optio. Quidem, eligendi molestias?
+            Трек:
+            <a :href="item.track" target="_blank">
+                {{ item.track }}
+            </a>
         </p>
+        <p>
+            Отчет:
+            <a :href="item.report" target="_blank">
+                {{ item.report }}
+            </a>
+        </p>
+
         <hr />
         <router-link to="/hikes">
             <v-btn>Назад</v-btn>
@@ -15,8 +24,36 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+    data() {
+        return {
+            item: [],
+        };
+    },
+    created() {
+        console.log(this.$route.params);
+    },
+    mounted() {
+        axios
+            .get(
+                "https://gist.githubusercontent.com/LadyVamp/d362ab08c4150f9350a57f0cd59552bf/raw/d36a9e83c7def67bdfea36bcb830e81c0c4c3416/my-hikes"
+            )
+            .then((response) => {
+                this.item = response.data.items.find(
+                    (x) => x.id === +this.$route.params.id
+                );
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    },
+};
 </script>
 
 <style lang="scss" scoped>
+a {
+    text-decoration: none;
+}
 </style>

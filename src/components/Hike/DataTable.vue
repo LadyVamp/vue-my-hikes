@@ -12,7 +12,7 @@
         <v-data-table :headers="headers" :items="items" :search="search">
             <template v-slot:[`item.name`]="{ item }">
                 <div class="name">
-                    <router-link :to="{ path: '/hike/' + item.id }">
+                    <router-link :to="{ path: '/hike/' + item.id }" title="Перейти к описанию">
                         {{ item.name }}
                     </router-link>
                 </div>
