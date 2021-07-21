@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div v-if="item">
         <h2>{{ item.name }}</h2>
-        <p>Страна: {{ item.country }}</p>
+        <p>Регион: {{ item.region }}</p>
         <p>Даты: {{ item.dates }}</p>
         <p>
             Трек:
@@ -9,7 +9,7 @@
                 {{ item.track }}
             </a>
         </p>
-        <p>
+        <p v-if="item.report">
             Отчет:
             <a :href="item.report" target="_blank">
                 {{ item.report }}
@@ -25,29 +25,31 @@
 
 <script>
 import axios from "axios";
+import hikes from '@/assets/hikes.json';
 
 export default {
     data() {
         return {
-            item: [],
+            item: null,
         };
     },
-    created() {
-        console.log(this.$route.params);
-    },
+    // mounted() {
+    //     axios
+    //         .get(
+    //             "https://gist.githubusercontent.com/LadyVamp/722387f920c104e08f633cc20d54bfba/raw/3fdab542267378a266b079cad3ba15a8fba10d73/my-hikes-v1"
+    //         )
+    //         .then((response) => {
+    //             this.item = response.data.items.find(
+    //                 (x) => x.id === +this.$route.params.id
+    //             );
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
+    //         });
+    // },
     mounted() {
-        axios
-            .get(
-                "https://gist.githubusercontent.com/LadyVamp/d362ab08c4150f9350a57f0cd59552bf/raw/d36a9e83c7def67bdfea36bcb830e81c0c4c3416/my-hikes"
-            )
-            .then((response) => {
-                this.item = response.data.items.find(
-                    (x) => x.id === +this.$route.params.id
-                );
-            })
-            .catch((err) => {
-                console.error(err);
-            });
+        let hikesData = hikes.items;
+        this.item = hikesData.find(item => item.id === +this.$route.params.id)
     },
 };
 </script>
@@ -55,5 +57,8 @@ export default {
 <style lang="scss" scoped>
 a {
     text-decoration: none;
+}
+.v-btn {
+    margin-top: 10px;
 }
 </style>

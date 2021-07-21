@@ -4,7 +4,7 @@
             <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
-                label="Search"
+                label="Поиск"
                 single-line
                 hide-details
             ></v-text-field>
@@ -12,7 +12,10 @@
         <v-data-table :headers="headers" :items="items" :search="search">
             <template v-slot:[`item.name`]="{ item }">
                 <div class="name">
-                    <router-link :to="{ path: '/hike/' + item.id }" title="Перейти к описанию">
+                    <router-link
+                        :to="{ path: '/hike/' + item.id }"
+                        title="Перейти к описанию"
+                    >
                         {{ item.name }}
                     </router-link>
                 </div>
@@ -22,17 +25,13 @@
                     {{ item.track }}
                 </a>
             </template>
-            <template v-slot:[`item.report`]="{ item }">
-                <a :href="item.report" target="_blank">
-                    {{ item.report }}
-                </a>
-            </template>
         </v-data-table>
     </v-card>
 </template>
 
 <script>
 import axios from "axios";
+import hikes from "@/assets/hikes.json";
 
 export default {
     name: "app",
@@ -40,32 +39,38 @@ export default {
         search: "",
         items: [],
         headers: [
-            { text: "Id", value: "id" },
-            { text: "Name", value: "name" },
-            { text: "Country", value: "country" },
-            { text: "Dates", value: "dates" },
-            { text: "Track", value: "track" },
-            { text: "Report", value: "report" },
+            { text: "Название", value: "name" },
+            { text: "Регион", value: "region" },
+            { text: "Даты", value: "dates" },
+            { text: "Трек", value: "track" },
+            { text: "Тип", value: "type" },
         ],
     }),
+    // mounted() {
+    //     axios
+    //         .get(
+    //             "https://gist.githubusercontent.com/LadyVamp/722387f920c104e08f633cc20d54bfba/raw/3fdab542267378a266b079cad3ba15a8fba10d73/my-hikes-v1"
+    //         )
+    //         .then((response) => {
+    //             console.log(response);
+    //             this.items = response.data.items;
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
+    //         });
+    // },
     mounted() {
-        axios
-            .get(
-                "https://gist.githubusercontent.com/LadyVamp/d362ab08c4150f9350a57f0cd59552bf/raw/d36a9e83c7def67bdfea36bcb830e81c0c4c3416/my-hikes"
-            )
-            .then((response) => {
-                console.log(response);
-                this.items = response.data.items;
-            })
-            .catch((err) => {
-                console.error(err);
-            });
+        let hikesData = hikes.items;
+        return this.items.push(...hikesData);
     },
 };
 </script>
 <style lang="scss" scoped>
 .name {
     cursor: pointer;
-    color: navy;
+    a {
+        color: navy;
+        text-decoration: none;
+    }
 }
 </style>
