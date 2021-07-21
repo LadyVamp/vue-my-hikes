@@ -26,10 +26,10 @@
                 </a>
             </template>
             <template v-slot:[`item.type`]="{ item }">
-                <v-icon v-if="item.type === 'bike'" large color="green darken-2">
+                <v-icon v-if="item.type === 'bike'" large color="secondary">
                     mdi-bike
                 </v-icon>
-                <v-icon v-if="item.type === 'hiking'" large color="green darken-2">
+                <v-icon v-if="item.type === 'hiking'" large color="secondary">
                     mdi-hiking
                 </v-icon>
             </template>
@@ -77,7 +77,6 @@ export default {
 .name {
     cursor: pointer;
     a {
-        color: navy;
         text-decoration: none;
     }
 }

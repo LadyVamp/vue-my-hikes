@@ -7,12 +7,12 @@
             <li>
                 <b>Тип:</b>
                 <span v-if="item.type === 'bike'" title="Велосипедный поход">
-                    <v-icon large color="green darken-2" class="ml-2">
+                    <v-icon large color="secondary" class="ml-2">
                         mdi-bike
                     </v-icon>
                 </span>
                 <span v-if="item.type === 'hiking'" title="Пеший поход">
-                    <v-icon large color="green darken-2" class="ml-2">
+                    <v-icon large color="secondary" class="ml-2">
                         mdi-hiking
                     </v-icon>
                 </span>
@@ -33,7 +33,7 @@
         </ul>
 
         <router-link to="/hikes">
-            <v-btn class="mt-2" color="orange" dark>
+            <v-btn class="mt-2" color="accent" dark>
                 <v-icon dark left> mdi-arrow-left </v-icon>Назад
             </v-btn>
         </router-link>
