@@ -1,31 +1,48 @@
 <template>
     <div v-if="item">
         <h2>{{ item.name }}</h2>
-        <p>Регион: {{ item.region }}</p>
-        <p>Даты: {{ item.dates }}</p>
-        <p>
-            Трек:
-            <a :href="item.track" target="_blank">
-                {{ item.track }}
-            </a>
-        </p>
-        <p v-if="item.report">
-            Отчет:
-            <a :href="item.report" target="_blank">
-                {{ item.report }}
-            </a>
-        </p>
+        <ul>
+            <li><b>Регион:</b> {{ item.region }}</li>
+            <li><b>Даты:</b> {{ item.dates }}</li>
+            <li>
+                <b>Тип:</b>
+                <span v-if="item.type === 'bike'" title="Велосипедный поход">
+                    <v-icon large color="green darken-2" class="ml-2">
+                        mdi-bike
+                    </v-icon>
+                </span>
+                <span v-if="item.type === 'hiking'" title="Пеший поход">
+                    <v-icon large color="green darken-2" class="ml-2">
+                        mdi-hiking
+                    </v-icon>
+                </span>
+            </li>
+            <li>
+                <b>Трек:</b>
+                <a :href="item.track" target="_blank">
+                    {{ item.track }}
+                </a>
+            </li>
+            <li v-if="item.report">
+                <b>Отчет:</b>
+                <a :href="item.report" target="_blank">
+                    {{ item.report }}
+                </a>
+            </li>
+            <li><b>Протяженность:</b> {{ item.distance }} км</li>
+        </ul>
 
-        <hr />
         <router-link to="/hikes">
-            <v-btn>Назад</v-btn>
+            <v-btn class="mt-2" color="orange" dark>
+                <v-icon dark left> mdi-arrow-left </v-icon>Назад
+            </v-btn>
         </router-link>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import hikes from '@/assets/hikes.json';
+import hikes from "@/assets/hikes.json";
 
 export default {
     data() {
@@ -49,7 +66,9 @@ export default {
     // },
     mounted() {
         let hikesData = hikes.items;
-        this.item = hikesData.find(item => item.id === +this.$route.params.id)
+        this.item = hikesData.find(
+            (item) => item.id === +this.$route.params.id
+        );
     },
 };
 </script>
@@ -60,5 +79,8 @@ a {
 }
 .v-btn {
     margin-top: 10px;
+}
+li {
+    list-style-type: none;
 }
 </style>

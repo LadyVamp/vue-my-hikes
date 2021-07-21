@@ -25,6 +25,14 @@
                     {{ item.track }}
                 </a>
             </template>
+            <template v-slot:[`item.type`]="{ item }">
+                <v-icon v-if="item.type === 'bike'" large color="green darken-2">
+                    mdi-bike
+                </v-icon>
+                <v-icon v-if="item.type === 'hiking'" large color="green darken-2">
+                    mdi-hiking
+                </v-icon>
+            </template>
         </v-data-table>
     </v-card>
 </template>

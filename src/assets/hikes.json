@@ -18,7 +18,7 @@
             "track": "https://www.gpsies.com/map.do?fileId=qtekctbpgrepjjhj",
             "report": null,
             "distance": 938.52,
-            "type": "cycling"
+            "type": "bike"
         },
         {
             "id": 4,
@@ -28,7 +28,7 @@
             "track": "https://www.gpsies.com/map.do?fileId=pguhcytgaiqkexrn",
             "report": "https://zen.yandex.ru/media/id/5d3eca34ae56cc00addf0751/beguscie-za-solncem-velopohod-iz-kavkaza-v-krym-i-5d41c35746f4ff00ad446484",
             "distance": 665.75,
-            "type": "cycling"
+            "type": "bike"
         },
         {
             "id": 3,
@@ -38,7 +38,7 @@
             "track": "https://www.gpsies.com/map.do?fileId=ghqkvmkegjdrkwbk",
             "report": null,
             "distance": 623.19,
-            "type": "cycling"
+            "type": "bike"
         },
         {
             "id": 2,
@@ -48,7 +48,7 @@
             "track": "https://www.gpsies.com/map.do?fileId=jpmzllxfszzjatsv",
             "report": null,
             "distance": 631.87,
-            "type": "cycling"
+            "type": "bike"
         },
         {
             "id": 1,
@@ -58,7 +58,7 @@
             "track": "https://www.gpsies.com/mapFolder.do?id=98189",
             "report": "http://tkmgtu.ru/files/velo/otchet/1kc_Averina_Nizhegorodskaya_obl_2017.pdf",
             "distance": 355.2,
-            "type": "cycling"
+            "type": "bike"
         }
     ]
 }
