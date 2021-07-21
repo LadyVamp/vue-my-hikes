@@ -1,0 +1,24 @@
+<template>
+    <v-app-bar app color="primary" dark>
+        <router-link :to="{ path: '/hikes/' }">
+            <v-img
+                alt="Vuetify Logo"
+                class="shrink mr-2"
+                contain
+                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+                transition="scale-transition"
+                width="40"
+            />
+        </router-link>
+        <v-toolbar-title class="shrink ml-2 hidden-sm-and-down">
+            My hikes
+        </v-toolbar-title>
+    </v-app-bar>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss" scoped>
+</style>
