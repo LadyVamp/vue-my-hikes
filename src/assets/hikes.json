@@ -1,5 +1,5 @@
 {
-    "items": [
+    "data": [
         {
             "id": 6,
             "name": "Маршрут № 30: через горы к Черному морю через приют Фишт",
@@ -23,7 +23,7 @@
         {
             "id": 4,
             "name": "Велопутешествие из Кавказа в Крым",
-            "region": "Россия, Крым",
+            "region": "Россия, республика Крым",
             "dates": "30.04 - 15.05.2019",
             "track": "https://www.gpsies.com/map.do?fileId=pguhcytgaiqkexrn",
             "report": "https://zen.yandex.ru/media/id/5d3eca34ae56cc00addf0751/beguscie-za-solncem-velopohod-iz-kavkaza-v-krym-i-5d41c35746f4ff00ad446484",

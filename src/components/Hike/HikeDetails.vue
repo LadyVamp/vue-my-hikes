@@ -65,7 +65,7 @@ export default {
     //         });
     // },
     mounted() {
-        let hikesData = hikes.items;
+        let hikesData = hikes.data;
         this.item = hikesData.find(
             (item) => item.id === +this.$route.params.id
         );

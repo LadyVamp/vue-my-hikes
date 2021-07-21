@@ -68,8 +68,27 @@ export default {
     //         });
     // },
     mounted() {
-        let hikesData = hikes.items;
-        return this.items.push(...hikesData);
+        this.fillTable();
+        // this.hideDistrictOfRussia(this.items);
+    },
+    methods: {
+        fillTable() {
+            let hikesData = hikes.data;
+            return this.items.push(...hikesData);
+        },
+        hideDistrictOfRussia(itemsArr) {
+            console.log(itemsArr);
+            itemsArr.forEach((item, i) => {
+                if (
+                    item.region.indexOf("Россия") !== -1 &&
+                    (item.region.indexOf("край") !== -1 || item.region.indexOf("область") !== -1 ||  item.region.indexOf("республика") !== -1)
+                ) {
+                    itemsArr[i].region = "Россия";
+                }
+            });
+            console.log(itemsArr);
+            this.items = itemsArr;
+        },
     },
 };
 </script>
