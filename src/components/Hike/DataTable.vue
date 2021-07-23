@@ -20,6 +20,9 @@
                     </router-link>
                 </div>
             </template>
+            <template v-slot:[`item.region`]="{ item }">
+                {{ item.region | hideDistrictOfRussia }}
+            </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
                     {{ item.track }}
@@ -69,25 +72,23 @@ export default {
     // },
     mounted() {
         this.fillTable();
-        // this.hideDistrictOfRussia(this.items);
+    },
+    filters: {
+        hideDistrictOfRussia: (value) => {
+            if (value.includes("Россия")) {
+                value.includes("край") ||
+                    value.includes("область") ||
+                    value.includes("республика");
+                return "Россия";
+            } else {
+                return value;
+            }
+        },
     },
     methods: {
         fillTable() {
             let hikesData = hikes.data;
             return this.items.push(...hikesData);
-        },
-        hideDistrictOfRussia(itemsArr) {
-            console.log(itemsArr);
-            itemsArr.forEach((item, i) => {
-                if (
-                    item.region.indexOf("Россия") !== -1 &&
-                    (item.region.indexOf("край") !== -1 || item.region.indexOf("область") !== -1 ||  item.region.indexOf("республика") !== -1)
-                ) {
-                    itemsArr[i].region = "Россия";
-                }
-            });
-            console.log(itemsArr);
-            this.items = itemsArr;
         },
     },
 };
