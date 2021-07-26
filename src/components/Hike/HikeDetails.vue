@@ -1,10 +1,10 @@
 <template>
-    <div v-if="item">
-        <h2>{{ item.name }}</h2>
-        <ul>
-            <li><b>Регион:</b> {{ item.region }}</li>
-            <li><b>Даты:</b> {{ item.dates }}</li>
-            <li>
+    <div v-if="item" class="d-flex flex-column">
+        <div>
+            <h2>{{ item.name }}</h2>
+            <p><b>Регион:</b> {{ item.region }}</p>
+            <p><b>Даты:</b> {{ item.dates }}</p>
+            <p>
                 <b>Тип:</b>
                 <span v-if="item.type === 'bike'" title="Велосипедный поход">
                     <v-icon large color="secondary" class="ml-2">
@@ -16,27 +16,30 @@
                         mdi-hiking
                     </v-icon>
                 </span>
-            </li>
-            <li>
-                <b>Трек:</b>
-                <a :href="item.track" target="_blank">
-                    {{ item.track }}
-                </a>
-            </li>
-            <li v-if="item.report">
-                <b>Отчет:</b>
-                <a :href="item.report" target="_blank">
-                    {{ item.report }}
-                </a>
-            </li>
-            <li><b>Протяженность:</b> {{ item.distance }} км</li>
-        </ul>
+            </p>
+            <p><b>Протяженность:</b> {{ item.distance }} км</p>
+            <p v-if="item.report">
+                <v-btn>
+                    <a :href="item.report" target="_blank"> Отчет </a>
+                </v-btn>
+            </p>
+        </div>
 
-        <router-link to="/hikes">
-            <v-btn class="mt-2" color="accent" dark>
-                <v-icon dark left> mdi-arrow-left </v-icon>Назад
+        <div v-if="item.track.includes('nakarte.me')">
+            <vue-friendly-iframe :src="item.track"></vue-friendly-iframe>
+        </div>
+        <div v-if="item.track.includes('gpsies.com')">
+            <v-btn>
+                <a :href="item.track" target="_blank"> Трек на gpsies.com </a>
             </v-btn>
-        </router-link>
+        </div>
+        <div>
+            <router-link to="/hikes">
+                <v-btn class="mt-2" color="accent" dark>
+                    <v-icon dark left> mdi-arrow-left </v-icon>Назад
+                </v-btn>
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -73,14 +76,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.vue-friendly-iframe {
+    iframe {
+        width: 100%;
+        height: 800px;
+    }
+}
 a {
     text-decoration: none;
-}
-.v-btn {
-    margin-top: 10px;
-}
-li {
-    list-style-type: none;
 }
 </style>
