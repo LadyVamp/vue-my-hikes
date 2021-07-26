@@ -74,14 +74,16 @@ export default {
         this.fillTable();
     },
     filters: {
-        hideDistrictOfRussia: (value) => {
-            if (value.includes("Россия")) {
-                value.includes("край") ||
-                    value.includes("область") ||
-                    value.includes("республика");
+        hideDistrictOfRussia: (region) => {
+            if (
+                region.includes("Россия") &&
+                (region.includes("край") ||
+                    region.includes("область") ||
+                    region.includes("республика"))
+            ) {
                 return "Россия";
             } else {
-                return value;
+                return region;
             }
         },
     },
