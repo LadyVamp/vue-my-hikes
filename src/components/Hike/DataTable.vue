@@ -46,17 +46,19 @@ import hikes from "@/assets/hikes.json";
 
 export default {
     name: "app",
-    data: () => ({
-        search: "",
-        items: [],
-        headers: [
-            { text: "Название", value: "name" },
-            { text: "Регион", value: "region" },
-            { text: "Даты", value: "dates" },
-            { text: "Трек", value: "track" },
-            { text: "Тип", value: "type" },
-        ],
-    }),
+    data() {
+        return {
+            search: "",
+            items: [],
+            headers: [
+                { text: "Название", value: "name" },
+                { text: "Регион", value: "region" },
+                { text: "Даты", value: "dates" },
+                { text: "Трек", value: "track" },
+                { text: "Тип", value: "type" },
+            ],
+        };
+    },
     // mounted() {
     //     axios
     //         .get(

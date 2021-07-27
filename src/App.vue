@@ -1,24 +1,24 @@
 <template>
     <v-app>
-        <AppBar />
+        <TheHeader />
         <v-main>
             <v-container>
                 <router-view />
             </v-container>
         </v-main>
-        <Footer />
+        <TheFooter />
     </v-app>
 </template>
 
 <script>
-import AppBar from "@/components/Layout/AppBar";
-import Footer from "@/components/Layout/Footer";
+import TheHeader from "@/components/Layout/TheHeader";
+import TheFooter from "@/components/Layout/TheFooter";
 
 export default {
     name: "App",
     components: {
-        AppBar,
-        Footer,
+        TheHeader,
+        TheFooter,
     },
 
     data: () => ({
