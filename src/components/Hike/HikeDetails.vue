@@ -19,9 +19,7 @@
             </p>
             <p><b>Протяженность:</b> {{ item.distance }} км</p>
             <p v-if="item.report">
-                <v-btn>
-                    <a :href="item.report" target="_blank"> Отчет </a>
-                </v-btn>
+                <LinkButton label="Отчет" :link="item.report" />
             </p>
         </div>
 
@@ -29,23 +27,17 @@
             <vue-friendly-iframe :src="item.track"></vue-friendly-iframe>
         </div>
         <div v-if="item.track.includes('gpsies.com')">
-            <v-btn>
-                <a :href="item.track" target="_blank"> Трек на gpsies.com </a>
-            </v-btn>
+            <LinkButton label="Трек на gpsies.com" :link="item.track" />
         </div>
-        <div>
-            <router-link to="/hikes">
-                <v-btn class="mt-2" color="accent" dark>
-                    <v-icon dark left> mdi-arrow-left </v-icon>Назад
-                </v-btn>
-            </router-link>
-        </div>
+        <BackButton />
     </div>
 </template>
 
 <script>
 import axios from "axios";
 import hikes from "@/assets/hikes.json";
+import LinkButton from "../Buttons/LinkButton.vue";
+import BackButton from "../Buttons/BackButton.vue";
 
 export default {
     data() {
@@ -72,6 +64,10 @@ export default {
         this.item = hikesData.find(
             (item) => item.id === +this.$route.params.id
         );
+    },
+    components: {
+        LinkButton,
+        BackButton,
     },
 };
 </script>
