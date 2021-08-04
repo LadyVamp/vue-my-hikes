@@ -22,12 +22,11 @@
                 <LinkButton label="Отчет" :link="item.report" />
             </p>
         </div>
-
-        <div v-if="item.track.includes('nakarte.me')">
-            <vue-friendly-iframe :src="item.track"></vue-friendly-iframe>
-        </div>
-        <div v-if="item.track.includes('gpsies.com')">
-            <LinkButton label="Трек на gpsies.com" :link="item.track" />
+        <div>
+            <LinkButton
+                :label="'Трек ' + extractHostname(item.track)"
+                :link="item.track"
+            />
         </div>
         <BackButton />
     </div>
@@ -59,6 +58,12 @@ export default {
     //             console.error(err);
     //         });
     // },
+    methods: {
+        extractHostname(url) {
+            let host = new URL(url).host;
+            return host.includes('www.') ? host.slice(4) : host;
+        },
+    },
     mounted() {
         let hikesData = hikes.data;
         this.item = hikesData.find(
@@ -73,12 +78,6 @@ export default {
 </script>
 
 <style lang="scss">
-.vue-friendly-iframe {
-    iframe {
-        width: 100%;
-        height: 800px;
-    }
-}
 a {
     text-decoration: none;
 }

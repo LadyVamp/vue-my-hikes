@@ -4,11 +4,9 @@ import router from './router';
 import vuetify from './plugins/vuetify';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import VueFriendlyIframe from 'vue-friendly-iframe';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-Vue.use(VueFriendlyIframe);
 
 new Vue({
   router,
