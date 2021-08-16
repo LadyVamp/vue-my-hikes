@@ -9,7 +9,7 @@
                 hide-details
             ></v-text-field>
         </v-card-title>
-        <v-data-table :headers="headers" :items="items" :search="search">
+        <v-data-table v-if="hikesList" :headers="headers" :items="hikesList" :search="search">
             <template v-slot:[`item.name`]="{ item }">
                 <div class="name">
                     <router-link
@@ -41,15 +41,11 @@
 </template>
 
 <script>
-import axios from "axios";
-import hikes from "@/assets/hikes.json";
-
 export default {
     name: "app",
     data() {
         return {
             search: "",
-            items: [],
             headers: [
                 { text: "Название", value: "name" },
                 { text: "Регион", value: "region" },
@@ -59,21 +55,8 @@ export default {
             ],
         };
     },
-    // mounted() {
-    //     axios
-    //         .get(
-    //             "https://gist.githubusercontent.com/LadyVamp/722387f920c104e08f633cc20d54bfba/raw/3fdab542267378a266b079cad3ba15a8fba10d73/my-hikes-v1"
-    //         )
-    //         .then((response) => {
-    //             console.log(response);
-    //             this.items = response.data.items;
-    //         })
-    //         .catch((err) => {
-    //             console.error(err);
-    //         });
-    // },
     mounted() {
-        this.fillTable();
+        this.$store.dispatch("GET_HIKE");
     },
     filters: {
         hideDistrictOfRussia: (region) => {
@@ -89,10 +72,10 @@ export default {
             }
         },
     },
-    methods: {
-        fillTable() {
-            let hikesData = hikes.data;
-            return this.items.push(...hikesData);
+    computed: {
+        hikesList() {
+            console.log('hikesList', this.$store.getters.HIKES);
+            return this.$store.getters.HIKES;
         },
     },
 };
