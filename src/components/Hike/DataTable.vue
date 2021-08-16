@@ -55,6 +55,11 @@ export default {
             ],
         };
     },
+    computed: {
+        hikesList() {
+            return this.$store.getters.HIKES;
+        },
+    },
     mounted() {
         this.$store.dispatch("GET_HIKE");
     },
@@ -70,12 +75,6 @@ export default {
             } else {
                 return region;
             }
-        },
-    },
-    computed: {
-        hikesList() {
-            console.log('hikesList', this.$store.getters.HIKES);
-            return this.$store.getters.HIKES;
         },
     },
 };

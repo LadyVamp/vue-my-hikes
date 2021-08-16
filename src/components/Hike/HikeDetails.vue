@@ -33,42 +33,28 @@
 </template>
 
 <script>
-import axios from "axios";
-import hikes from "@/assets/hikes.json";
 import LinkButton from "../Buttons/LinkButton.vue";
 import BackButton from "../Buttons/BackButton.vue";
 
 export default {
-    data() {
-        return {
-            item: null,
-        };
-    },
-    // mounted() {
-    //     axios
-    //         .get(
-    //             "https://gist.githubusercontent.com/LadyVamp/722387f920c104e08f633cc20d54bfba/raw/3fdab542267378a266b079cad3ba15a8fba10d73/my-hikes-v1"
-    //         )
-    //         .then((response) => {
-    //             this.item = response.data.items.find(
-    //                 (x) => x.id === +this.$route.params.id
-    //             );
-    //         })
-    //         .catch((err) => {
-    //             console.error(err);
-    //         });
-    // },
-    methods: {
-        extractHostname(url) {
-            let host = new URL(url).host;
-            return host.includes('www.') ? host.slice(4) : host;
+    computed: {
+        item() {
+            if (this.$store.getters.HIKES) {
+                const item = this.$store.getters.HIKES.find(
+                    (item) => item.id === +this.$route.params.id
+                );
+                return item;
+            }
         },
     },
     mounted() {
-        let hikesData = hikes.data;
-        this.item = hikesData.find(
-            (item) => item.id === +this.$route.params.id
-        );
+        this.$store.dispatch("GET_HIKE");
+    },
+    methods: {
+        extractHostname(url) {
+            let host = new URL(url).host;
+            return host.includes("www.") ? host.slice(4) : host;
+        },
     },
     components: {
         LinkButton,

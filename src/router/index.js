@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HikeDetails from '@/components/Hike/HikeDetails'
+import HikeDetails from '@/components/Hike/HikeDetails';
 
 Vue.use(VueRouter);
 
