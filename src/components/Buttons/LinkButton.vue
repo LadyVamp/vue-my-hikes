@@ -1,5 +1,5 @@
 <template>
-    <v-btn>
+    <v-btn class="mt-4">
         <a :href="link" target="_blank">{{ label }}</a>
     </v-btn>
 </template>

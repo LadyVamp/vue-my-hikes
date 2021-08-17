@@ -25,7 +25,7 @@
             </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
-                    {{ item.track }}
+                    {{ addEllipsisForMobile(item.track) }}
                 </a>
             </template>
             <template v-slot:[`item.type`]="{ item }">
@@ -42,7 +42,6 @@
 
 <script>
 export default {
-    name: "app",
     data() {
         return {
             search: "",
@@ -62,6 +61,11 @@ export default {
     },
     mounted() {
         this.$store.dispatch("GET_HIKE");
+    },
+    methods: {
+        addEllipsisForMobile(link) {
+            return this.$vuetify.breakpoint.mobile ? link.slice(0, 30) + "..." : link;
+        },
     },
     filters: {
         hideDistrictOfRussia: (region) => {

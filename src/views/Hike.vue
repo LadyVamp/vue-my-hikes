@@ -1,13 +1,15 @@
 <template>
-    <HikeRegistry />
+    <div>
+        <DataTable />
+    </div>
 </template>
 
 <script>
-import HikeRegistry from "@/components/Hike/Registry";
+import DataTable from "@/components/Hike/DataTable";
 
 export default {
     components: {
-        HikeRegistry,
+        DataTable,
     },
 };
 </script>

@@ -18,9 +18,7 @@
                 </span>
             </p>
             <p><b>Протяженность:</b> {{ item.distance }} км</p>
-            <p v-if="item.report">
-                <LinkButton label="Отчет" :link="item.report" />
-            </p>
+            <LinkButton v-if="item.report" label="Отчет" :link="item.report" />
         </div>
         <div>
             <LinkButton
