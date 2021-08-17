@@ -6,7 +6,7 @@ import VueYandexMetrika from 'vue-yandex-metrika';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '*', redirect: '/hikes' },
+  { path: '', redirect: '/hikes' },
   {
     path: '/hikes',
     name: 'Hikes',
@@ -19,6 +19,7 @@ const routes = [
     path: '/hike/:id',
     component: HikeDetails
   },
+  { path: "*", redirect: '/hikes' },
 ];
 
 const router = new VueRouter({
