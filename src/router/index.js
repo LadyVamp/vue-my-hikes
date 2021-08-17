@@ -32,7 +32,6 @@ Vue.use(VueYandexMetrika, {
   id: 84106609,
   router: router,
   env: process.env.NODE_ENV
-  // other options
 })
 
 export default router;

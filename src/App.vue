@@ -24,9 +24,5 @@ export default {
     data: () => ({
         //
     }),
-    created() {
-       console.log(this.$router);
-       console.log(process.env)
-    }
 };
 </script>
