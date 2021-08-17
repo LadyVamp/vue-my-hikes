@@ -37,6 +37,13 @@
                 </v-icon>
             </template>
         </v-data-table>
+        <div v-else class="text-center">
+            <v-progress-circular
+                class="my-4"
+                indeterminate
+                color="primary"
+            ></v-progress-circular>
+        </div>
     </v-card>
 </template>
 
@@ -64,7 +71,9 @@ export default {
     },
     methods: {
         addEllipsisForMobile(link) {
-            return this.$vuetify.breakpoint.mobile ? link.slice(0, 30) + "..." : link;
+            return this.$vuetify.breakpoint.mobile
+                ? link.slice(0, 30) + "..."
+                : link;
         },
     },
     filters: {
