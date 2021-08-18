@@ -1,6 +1,6 @@
 {
   "name": "vue-my-hikes",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
