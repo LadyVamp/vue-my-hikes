@@ -9,7 +9,12 @@
                 hide-details
             ></v-text-field>
         </v-card-title>
-        <v-data-table v-if="hikesList" :headers="headers" :items="hikesList" :search="search">
+        <v-data-table
+            v-if="hikesList"
+            :headers="headers"
+            :items="hikesList"
+            :search="search"
+        >
             <template v-slot:[`item.name`]="{ item }">
                 <div class="name">
                     <router-link
@@ -21,7 +26,8 @@
                 </div>
             </template>
             <template v-slot:[`item.region`]="{ item }">
-                {{ item.region | hideDistrictOfRussia }}
+                <FlagIcon :country="hideDistrictOfRussia(item.region)" />
+                {{ hideDistrictOfRussia(item.region) }}
             </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
@@ -48,6 +54,8 @@
 </template>
 
 <script>
+import FlagIcon from "./FlagIcon.vue";
+
 export default {
     data() {
         return {
@@ -75,8 +83,6 @@ export default {
                 ? link.slice(0, 30) + "..."
                 : link;
         },
-    },
-    filters: {
         hideDistrictOfRussia: (region) => {
             if (
                 region.includes("Россия") &&
@@ -89,6 +95,9 @@ export default {
                 return region;
             }
         },
+    },
+    components: {
+        FlagIcon,
     },
 };
 </script>
