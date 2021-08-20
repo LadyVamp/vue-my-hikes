@@ -1,6 +1,6 @@
 <template>
     <v-footer padless>
-        <v-col class="text-center py-1" cols="12">
+        <v-col class="text-center text-body-2 py-1" cols="12">
             © {{ new Date().getFullYear() }}
             <a href="https://ladyvamp.github.io/ng-portfolio/" target="_blank"
                 >Nadezhda Dyakova aka LadyVamp</a
@@ -21,3 +21,8 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+a:hover {
+    text-decoration: underline;
+}
+</style>

@@ -1,6 +1,8 @@
 <template>
     <v-card>
         <v-card-title>
+            Маршруты
+            <v-spacer></v-spacer>
             <v-text-field
                 v-model="search"
                 append-icon="mdi-magnify"
@@ -15,15 +17,21 @@
             :items="hikesList"
             :search="search"
         >
+            <template v-slot:[`item.type`]="{ item }">
+                <v-icon v-if="item.type === 'bike'" large color="secondary" title="Вело">
+                    mdi-bike
+                </v-icon>
+                <v-icon v-if="item.type === 'hiking'" large color="secondary" title="Пеший">
+                    mdi-hiking
+                </v-icon>
+            </template>
             <template v-slot:[`item.name`]="{ item }">
-                <div class="name">
-                    <router-link
-                        :to="{ path: '/hike/' + item.id }"
-                        title="Перейти к описанию"
-                    >
-                        {{ item.name }}
-                    </router-link>
-                </div>
+                <router-link
+                    :to="{ path: '/hike/' + item.id }"
+                    title="Перейти к описанию"
+                >
+                    {{ item.name }}
+                </router-link>
             </template>
             <template v-slot:[`item.region`]="{ item }">
                 <FlagIcon :country="hideDistrictOfRussia(item.region)" />
@@ -33,14 +41,6 @@
                 <a :href="item.track" target="_blank">
                     {{ addEllipsisForMobile(item.track) }}
                 </a>
-            </template>
-            <template v-slot:[`item.type`]="{ item }">
-                <v-icon v-if="item.type === 'bike'" large color="secondary">
-                    mdi-bike
-                </v-icon>
-                <v-icon v-if="item.type === 'hiking'" large color="secondary">
-                    mdi-hiking
-                </v-icon>
             </template>
         </v-data-table>
         <div v-else class="text-center">
@@ -61,11 +61,11 @@ export default {
         return {
             search: "",
             headers: [
+                { text: "", value: "type", sortable: false },
                 { text: "Название", value: "name" },
                 { text: "Регион", value: "region" },
                 { text: "Даты", value: "dates" },
-                { text: "Трек", value: "track" },
-                { text: "Тип", value: "type" },
+                { text: "Трек", value: "track", sortable: false },
             ],
         };
     },
@@ -102,10 +102,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.name {
-    cursor: pointer;
-    a {
-        text-decoration: none;
-    }
+a:hover {
+    text-decoration: underline;
 }
 </style>
