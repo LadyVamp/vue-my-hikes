@@ -4,6 +4,7 @@
             <h2>{{ item.name }}</h2>
             <p><b>Регион:</b> {{ item.region }}</p>
             <p><b>Даты:</b> {{ item.dates }}</p>
+            <p><b>Продолжительность в днях: </b>{{ dayDiff() }}</p>
             <p>
                 <b>Тип:</b>
                 <span v-if="item.type === 'bike'" title="Велосипедный поход">
@@ -52,6 +53,11 @@ export default {
         extractHostname(url) {
             let host = new URL(url).host;
             return host.includes("www.") ? host.slice(4) : host;
+        },
+        dayDiff() {
+            const date1 = new Date(this.item.dateStart);
+            const date2 = new Date(this.item.dateEnd);
+            return Math.abs(date1.getTime() - date2.getTime()) / 86400000;
         },
     },
     components: {
