@@ -23,8 +23,7 @@ export const store = new Vuex.Store({
 
   actions: {
     GET_HIKE: async (context, payload) => {
-      // let { data } = await Axios.get('https://gist.githubusercontent.com/LadyVamp/c2c7f218a07c7a457fb5f56dc922e24f/raw/dd187968dc1197db2a1df46bc1071c32adfe4929/my-hikes-08-21');
-      let { data } = await Axios.get('https://gist.githubusercontent.com/LadyVamp/90e12c5a4d20b251ba7f70fe2aeb405b/raw/602b8c25810875886367968acd677432404f453d/my-hikes-08-21-v2');
+      let { data } = await Axios.get('https://gist.githubusercontent.com/LadyVamp/90e12c5a4d20b251ba7f70fe2aeb405b/raw/9469eac99d93bfba21793047636b4d78a153657f/hikes-08-23');
       context.commit('SET_HIKE', data.data);
     },
   },

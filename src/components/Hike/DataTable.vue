@@ -34,8 +34,8 @@
                 </router-link>
             </template>
             <template v-slot:[`item.region`]="{ item }">
-                <FlagIcon :country="hideDistrictOfRussia(item.region)" />
-                {{ hideDistrictOfRussia(item.region) }}
+                <FlagIcon :country="item.region" />
+                {{ item.region }}
             </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
@@ -82,18 +82,6 @@ export default {
             return this.$vuetify.breakpoint.mobile
                 ? link.slice(0, 30) + "..."
                 : link;
-        },
-        hideDistrictOfRussia: (region) => {
-            if (
-                region.includes("Россия") &&
-                (region.includes("край") ||
-                    region.includes("область") ||
-                    region.includes("республика"))
-            ) {
-                return "Россия";
-            } else {
-                return region;
-            }
         },
     },
     components: {

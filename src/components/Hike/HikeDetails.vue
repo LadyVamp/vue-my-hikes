@@ -2,9 +2,13 @@
     <div v-if="item" class="d-flex flex-column">
         <div>
             <h2>{{ item.name }}</h2>
-            <p><b>Регион:</b> {{ item.region }}</p>
+            <p>
+                <b>Регион:</b> 
+                <FlagIcon :country="item.region" class="d-inline px-1"/>{{ item.region }}
+                <span v-if="item.district">({{ item.district }})</span>
+            </p>
             <p><b>Даты:</b> {{ item.dates }}</p>
-            <p><b>Продолжительность в днях: </b>{{ dayDiff() }}</p>
+            <p><b>Ходовых дней: </b>{{ dayDiff() }}</p>
             <p>
                 <b>Тип:</b>
                 <span v-if="item.type === 'bike'" title="Велосипедный поход">
@@ -34,6 +38,7 @@
 <script>
 import LinkButton from "../Buttons/LinkButton.vue";
 import BackButton from "../Buttons/BackButton.vue";
+import FlagIcon from "./FlagIcon.vue";
 
 export default {
     computed: {
@@ -63,6 +68,7 @@ export default {
     components: {
         LinkButton,
         BackButton,
+        FlagIcon
     },
 };
 </script>
