@@ -37,6 +37,9 @@
                 <FlagIcon :country="item.region" />
                 {{ item.region }}
             </template>
+              <template v-slot:[`item.dateStart`]="{ item }">
+                {{ formatDates(item.dateStart, item.dateEnd)}}
+            </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
                     {{ addEllipsisForMobile(item.track) }}
@@ -64,7 +67,7 @@ export default {
                 { text: "", value: "type", sortable: false },
                 { text: "Название", value: "name" },
                 { text: "Регион", value: "region" },
-                { text: "Даты", value: "dates" },
+                { text: "Даты", value: "dateStart" },
                 { text: "Трек", value: "track", sortable: false },
             ],
         };
@@ -83,6 +86,11 @@ export default {
                 ? link.slice(0, 30) + "..."
                 : link;
         },
+        formatDates(dateStart, dateEnd) {
+            const date1 = dateStart.split('-').reverse().join('.').slice(0,5)
+            const date2 = dateEnd.split('-').reverse().join('.')           
+            return date1 + '-' + date2;
+        }
     },
     components: {
         FlagIcon,

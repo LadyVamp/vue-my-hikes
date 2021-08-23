@@ -7,7 +7,7 @@
                 <FlagIcon :country="item.region" class="d-inline px-1"/>{{ item.region }}
                 <span v-if="item.district">({{ item.district }})</span>
             </p>
-            <p><b>Даты:</b> {{ item.dates }}</p>
+            <p><b>Даты:</b> {{ formatDates(item.dateStart, item.dateEnd)}}</p>
             <p><b>Ходовых дней: </b>{{ dayDiff() }}</p>
             <p>
                 <b>Тип:</b>
@@ -64,6 +64,11 @@ export default {
             const date2 = new Date(this.item.dateEnd);
             return Math.abs(date1.getTime() - date2.getTime()) / 86400000;
         },
+        formatDates(dateStart, dateEnd) {
+            const date1 = dateStart.split('-').reverse().join('.').slice(0,5)
+            const date2 = dateEnd.split('-').reverse().join('.')           
+            return date1 + '-' + date2;
+        }
     },
     components: {
         LinkButton,
