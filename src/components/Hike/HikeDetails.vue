@@ -23,12 +23,13 @@
                 </span>
             </p>
             <p><b>Протяженность:</b> {{ item.distance }} км</p>
-            <LinkButton v-if="item.report" label="Отчет" :link="item.report" />
         </div>
-        <div>
+        <div class="d-flex flex-column">
+            <LinkButton v-if="item.report" label="Отчет" :link="item.report" :icon="'mdi-file'"/>
             <LinkButton
                 :label="'Трек ' + extractHostname(item.track)"
                 :link="item.track"
+                :icon="'mdi-map-marker-multiple'"
             />
         </div>
         <BackButton />
@@ -78,8 +79,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-a {
-    text-decoration: none;
-}
+<style lang="scss" scoped>
 </style>

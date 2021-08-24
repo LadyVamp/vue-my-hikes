@@ -26,3 +26,12 @@ export default {
     }),
 };
 </script>
+
+<style lang='scss'>
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+</style>
