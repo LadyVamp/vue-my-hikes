@@ -16,6 +16,8 @@
             :headers="headers"
             :items="hikesList"
             :search="search"
+            :sort-by="'date_start'"
+            :sort-desc="true"
         >
             <template v-slot:[`item.type`]="{ item }">
                 <v-icon v-if="item.type === 'bike'" large color="secondary" title="Вело">
@@ -37,8 +39,8 @@
                 <FlagIcon :country="item.region" />
                 {{ item.region }}
             </template>
-              <template v-slot:[`item.dateStart`]="{ item }">
-                {{ formatDates(item.dateStart, item.dateEnd)}}
+            <template v-slot:[`item.date_start`]="{ item }">
+                {{ formatDates(item.date_start, item.date_end)}}
             </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
@@ -67,7 +69,7 @@ export default {
                 { text: "", value: "type", sortable: false },
                 { text: "Название", value: "name" },
                 { text: "Регион", value: "region" },
-                { text: "Даты", value: "dateStart" },
+                { text: "Даты", value: "date_start" },
                 { text: "Трек", value: "track", sortable: false },
             ],
         };

@@ -7,7 +7,7 @@
                 <FlagIcon :country="item.region" class="d-inline px-1"/>{{ item.region }}
                 <span v-if="item.district">({{ item.district }})</span>
             </p>
-            <p><b>Даты:</b> {{ formatDates(item.dateStart, item.dateEnd)}}</p>
+            <p><b>Даты:</b> {{ formatDates(item.date_start, item.date_end)}}</p>
             <p><b>Ходовых дней: </b>{{ dayDiff() }}</p>
             <p>
                 <b>Тип:</b>
@@ -61,8 +61,8 @@ export default {
             return host.includes("www.") ? host.slice(4) : host;
         },
         dayDiff() {
-            const date1 = new Date(this.item.dateStart);
-            const date2 = new Date(this.item.dateEnd);
+            const date1 = new Date(this.item.date_start);
+            const date2 = new Date(this.item.date_end);
             return Math.abs(date1.getTime() - date2.getTime()) / 86400000;
         },
         formatDates(dateStart, dateEnd) {

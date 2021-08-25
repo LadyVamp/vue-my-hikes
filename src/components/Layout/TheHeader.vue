@@ -1,6 +1,6 @@
 <template>
     <v-app-bar app color="primary" dark>
-        <router-link :to="{ path: '/hikes/' }">
+        <router-link :to="{ path: '/' }">
             <v-img
                 alt="Vuetify Logo"
                 class="shrink mr-2"
