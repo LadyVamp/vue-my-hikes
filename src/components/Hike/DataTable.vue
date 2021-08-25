@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import FlagIcon from "./FlagIcon.vue";
+import FlagIcon from "@/components/Hike/FlagIcon.vue";
 
 export default {
     data() {

@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import LinkButton from "../Buttons/LinkButton.vue";
-import BackButton from "../Buttons/BackButton.vue";
-import FlagIcon from "./FlagIcon.vue";
+import LinkButton from "@/components/Buttons/LinkButton.vue";
+import BackButton from "@/components/Buttons/BackButton.vue";
+import FlagIcon from "@/components/Hike/FlagIcon.vue";
 
 export default {
     computed: {
