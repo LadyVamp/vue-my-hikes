@@ -1,10 +1,10 @@
 <template>
     <div class="my-2">
-        <v-btn>
-            <v-icon v-if="icon" color="primary">
+        <v-btn :href="link" target="_blank" color="primary">
+            <v-icon class="pr-1">
                 {{ icon }}
             </v-icon>
-            <a :href="link" target="_blank">{{ label }}</a>
+            {{ label }}
         </v-btn>
     </div>
 </template>
