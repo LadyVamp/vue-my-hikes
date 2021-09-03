@@ -40,7 +40,7 @@
                 {{ item.region }}
             </template>
             <template v-slot:[`item.date_start`]="{ item }">
-                {{ formatDates(item.date_start, item.date_end)}}
+                {{ item.dates }}
             </template>
             <template v-slot:[`item.track`]="{ item }">
                 <a :href="item.track" target="_blank">
@@ -88,11 +88,6 @@ export default {
                 ? link.slice(0, 30) + "..."
                 : link;
         },
-        formatDates(dateStart, dateEnd) {
-            const date1 = dateStart.split('-').reverse().join('.').slice(0,5)
-            const date2 = dateEnd.split('-').reverse().join('.')           
-            return date1 + '-' + date2;
-        }
     },
     components: {
         FlagIcon,
