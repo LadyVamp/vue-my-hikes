@@ -3,6 +3,16 @@
         <TheHeader />
         <v-main>
             <v-container>
+                <v-tabs>
+                    <v-tab to="/">
+                        <v-icon class="pr-1">mdi-routes</v-icon>
+                        Маршруты
+                    </v-tab>
+                    <v-tab to="/calculator">
+                        <v-icon class="pr-1">mdi-calculator</v-icon>
+                        Калькулятор
+                    </v-tab>
+                </v-tabs>
                 <router-view />
             </v-container>
         </v-main>
@@ -30,8 +40,5 @@ export default {
 <style lang='scss'>
 a {
     text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    }
 }
 </style>
