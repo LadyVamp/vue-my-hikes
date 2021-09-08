@@ -13,7 +13,7 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col cols="6">
+            <v-col cols="12" sm="4" md="4" lg="2">
                 <v-text-field
                     label="Количество туристов"
                     v-model="countTourist"
