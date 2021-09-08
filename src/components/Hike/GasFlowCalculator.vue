@@ -1,19 +1,26 @@
 <template>
     <v-container fluid>
-        <h2>Калькулятор расхода газа для горелки</h2>
+        <h2 class="font-weight-medium">Сколько газа взять в поход?</h2>
         <v-row>
             <v-col>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Suscipit, at. Aliquam, recusandae voluptate accusantium
-                    aperiam minus architecto ducimus sunt sed officia esse
-                    repellat odit, maiores inventore quisquam id necessitatibus
-                    aliquid.
+                    Калькулятор поможет рассчитать, сколько баллонов с газом
+                    взять в поход.
+                </p>
+                <p>
+                    Параметры горелки: время закипания одного литра воды
+                    (определяется эмпирическим путем) и расход газа
+                    (определяется из характеристик горелки). Значения по
+                    умолчанию заданы для горелки BRS-3000T.
+                </p>
+                <p>
+                    В расчете используются резьбовые баллоны объемом
+                    100г/230г/450г.
                 </p>
             </v-col>
         </v-row>
         <v-row>
-            <v-col cols="12" sm="4" md="4" lg="2">
+            <v-col cols="12" sm="4" md="3" lg="3">
                 <v-text-field
                     label="Количество туристов"
                     v-model="countTourist"
@@ -76,8 +83,8 @@
             </v-col>
             <v-col v-else>
                 Баллонов, шт (1 баллон <b>450</b> г):
-                {{ gas450Cartridge }}      
-                    
+                {{ gas450Cartridge }}
+
                 <figure v-if="gas450Cartridge < 20">
                     <img
                         v-for="n in gas450Cartridge"
@@ -87,9 +94,7 @@
                 </figure>
                 <figure v-else class="d-flex">
                     <img src="../../assets/gas/gas450.jpg" alt="" />
-                    <p class="py-4">
-                        × {{ gas450Cartridge }}
-                    </p>                        
+                    <p class="py-4">× {{ gas450Cartridge }}</p>
                 </figure>
             </v-col>
         </v-row>
@@ -153,9 +158,6 @@ export default {
 </script>
 
 <style scoped>
-.v-input {
-    width: 200px;
-}
 img {
     height: 100px;
 }
