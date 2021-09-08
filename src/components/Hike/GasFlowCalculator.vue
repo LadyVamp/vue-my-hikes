@@ -84,14 +84,13 @@
             <v-col v-else>
                 Баллонов, шт (1 баллон <b>450</b> г):
                 {{ gas450Cartridge }}
-
-                <figure v-if="gas450Cartridge < 20">
+                <transition-group v-if="gas450Cartridge < 20" name="fade" tag="figure">
                     <img
                         v-for="n in gas450Cartridge"
                         :key="n"
                         src="../../assets/gas/gas450.jpg"
                     />
-                </figure>
+                </transition-group>
                 <figure v-else class="d-flex">
                     <img src="../../assets/gas/gas450.jpg" alt="" />
                     <p class="py-4">× {{ gas450Cartridge }}</p>
@@ -163,5 +162,12 @@ img {
 }
 figure p {
     font-size: 40px;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
 }
 </style>
