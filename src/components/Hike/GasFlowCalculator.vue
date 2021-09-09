@@ -1,71 +1,86 @@
 <template>
-    <v-container fluid>
+    <v-container>
         <h2 class="font-weight-medium">Сколько газа взять в поход?</h2>
-        <v-row>
-            <v-col>
-                <p>
-                    Калькулятор поможет рассчитать, сколько баллонов с газом
-                    взять в поход.
-                </p>
-                <p>
-                    Параметры горелки: время закипания одного литра воды
-                    (определяется эмпирическим путем) и расход газа
-                    (определяется из характеристик горелки). Значения по
-                    умолчанию заданы для горелки BRS-3000T.
-                </p>
-                <p>
-                    В расчете используются резьбовые баллоны объемом
-                    100г/230г/450г.
-                </p>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="12" sm="4" md="3" lg="3">
-                <v-text-field
-                    label="Количество туристов"
-                    v-model="countTourist"
-                    type="number"
-                    min="1"
-                    max="30"
-                ></v-text-field>
-                <v-text-field
-                    label="Количество готовок в день"
-                    v-model="countCooksPerDay"
-                    type="number"
-                    min="1"
-                    max="3"
-                ></v-text-field>
-                <v-text-field
-                    label="Количество дней"
-                    v-model="countDays"
-                    type="number"
-                    min="1"
-                    max="30"
-                ></v-text-field>
-                <v-text-field
-                    label="Время закипания 1 литра воды"
-                    v-model="boilingTime"
-                    type="time"
-                    suffix="мм:сс"
-                ></v-text-field>
-                <v-text-field
-                    label="Расход газа"
-                    v-model="gasConsumption"
-                    type="number"
-                    min="0"
-                    suffix="г/час"
-                ></v-text-field>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col>
-                <v-btn color="accent" @click="calculateGasWeight()">
-                    <v-icon class="pr-1"> mdi-fire </v-icon>
-                    Рассчитать
-                </v-btn>
-            </v-col>
-        </v-row>
-        <v-row v-if="gasWeight !== 0" class="d-flex flex-column">
+        <div>
+            <p>
+                Калькулятор поможет рассчитать, сколько баллонов с газом взять в
+                поход.
+            </p>
+            <p>
+                Параметры горелки: время закипания одного литра воды
+                (определяется эмпирическим путем) и расход газа (определяется из
+                характеристик горелки). Значения по умолчанию заданы для горелки
+                BRS-3000T.
+            </p>
+            <p>
+                В расчете используются резьбовые баллоны объемом 100г/230г/450г.
+            </p>
+        </div>
+        <v-form v-model="valid">
+            <v-row>
+                <v-col cols="12" sm="4" md="3" lg="2">
+                    <v-text-field
+                        label="Количество туристов"
+                        v-model="countTourist"
+                        type="number"
+                        min="1"
+                        max="30"
+                        autocomplete="off"
+                        :rules="countTouristRules"
+                    ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="4" md="3" lg="2">
+                    <v-text-field
+                        label="Количество готовок в день"
+                        v-model="countCooksPerDay"
+                        type="number"
+                        min="1"
+                        max="3"
+                        autocomplete="off"
+                        :rules="countCooksPerDayRules"
+                    ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="4" md="3" lg="2">
+                    <v-text-field
+                        label="Количество дней"
+                        v-model="countDays"
+                        type="number"
+                        min="1"
+                        max="30"
+                        autocomplete="off"
+                        :rules="countDaysRules"
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols="12" sm="4" md="3" lg="2">
+                    <v-text-field
+                        label="Время закипания 1 литра воды"
+                        v-model="boilingTime"
+                        type="time"
+                        suffix="мм:сс"
+                    ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="4" md="3" lg="2">
+                    <v-text-field
+                        label="Расход газа"
+                        v-model="gasConsumption"
+                        type="number"
+                        min="1"
+                        suffix="г/час"
+                        autocomplete="off"
+                        :rules="gasConsumptionRules"
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+        </v-form>
+
+        <v-btn color="accent" @click="calculateGasWeight()" :disabled="!valid">
+            <v-icon class="pr-1"> mdi-fire </v-icon>
+            Рассчитать
+        </v-btn>
+
+        <v-row v-if="gasWeight !== 0" class="d-flex flex-column my-2">
             <v-col>Результат, г: {{ gasWeight }} </v-col>
             <v-col v-if="gasWeight <= 100">
                 Баллонов, шт (1 баллон <b>100</b> г):
@@ -84,7 +99,11 @@
             <v-col v-else>
                 Баллонов, шт (1 баллон <b>450</b> г):
                 {{ gas450Cartridge }}
-                <transition-group v-if="gas450Cartridge < 20" name="fade" tag="figure">
+                <transition-group
+                    v-if="gas450Cartridge < 20"
+                    name="fade"
+                    tag="figure"
+                >
                     <img
                         v-for="n in gas450Cartridge"
                         :key="n"
@@ -111,6 +130,28 @@ export default {
             gasConsumption: 140,
             gasWeight: 0,
             gas450Cartridge: 0,
+
+            valid: false,
+            countTouristRules: [
+                (v) => !!v || "Поле обязательно для заполнения",
+                (v) =>
+                    (v > 0 && v <= 30) ||
+                    "Введите реальное количество туристов",
+            ],
+            countCooksPerDayRules: [
+                (v) => !!v || "Поле обязательно для заполнения",
+                (v) =>
+                    (v > 0 && v <= 3) ||
+                    "Введите реальное количество готовок в день",
+            ],
+            countDaysRules: [
+                (v) => !!v || "Поле обязательно для заполнения",
+                (v) => (v > 0 && v <= 30) || "Введите реальное количество дней",
+            ],
+            gasConsumptionRules: [
+                (v) => !!v || "Поле обязательно для заполнения",
+                (v) => v > 0 || "Ожидается положительное число",
+            ],
         };
     },
     methods: {
@@ -167,7 +208,8 @@ figure p {
 .fade-leave-active {
     transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
     opacity: 0;
 }
 </style>
