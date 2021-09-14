@@ -80,25 +80,24 @@
             Рассчитать
         </v-btn>
 
-        <v-row v-if="gasWeight !== 0" class="d-flex flex-column my-2">
-            <v-col>Результат, г: {{ gasWeight }} </v-col>
-            <v-col v-if="gasWeight <= 100">
+        <v-row v-if="totalGasWeight !== 0" class="d-flex flex-column my-2">
+            <v-col>Результат: {{ totalGasWeight }} г</v-col>
+            <v-col v-if="totalGasWeight <= 100">
                 Баллонов, шт (1 баллон <b>100</b> г):
-                {{ Math.ceil(gasWeight / 100) }}
+                {{ Math.ceil(totalGasWeight / 100) }}
                 <figure>
                     <img src="../../assets/gas/gas100.jpg" alt="" />
                 </figure>
             </v-col>
-            <v-col v-else-if="gasWeight > 100 && gasWeight <= 230">
+            <v-col v-else-if="totalGasWeight > 100 && totalGasWeight <= 230">
                 Баллонов, шт (1 баллон <b>230</b> г):
-                {{ Math.ceil(gasWeight / 230) }}
+                {{ Math.ceil(totalGasWeight / 230) }}
                 <figure>
                     <img src="../../assets/gas/gas230.jpg" alt="" />
                 </figure>
             </v-col>
             <v-col v-else>
-                Баллонов, шт (1 баллон <b>450</b> г):
-                {{ gas450Cartridge }}
+                Количество баллонов 450г: <b>{{ gas450Cartridge }}</b>
                 <transition-group
                     v-if="gas450Cartridge < 20"
                     name="fade"
@@ -115,20 +114,34 @@
                     <p class="py-4">× {{ gas450Cartridge }}</p>
                 </figure>
             </v-col>
+            <v-col>
+                <p v-if="gas450Cartridge === 1">
+                    1 неполный баллон {{ calculateResidue() }} г
+                </p>
+                <p v-else>
+                    {{ gas450Cartridge - 1 }} полных баллонов + 1 неполный
+                    {{ calculateResidue() }} г:
+                </p>
+                <IncompleteGasCartridge
+                    :percent="(calculateResidue() / 450).toFixed(2) * 100"
+                />
+            </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+import IncompleteGasCartridge from "@/components/Hike/IncompleteGasCartridge.vue";
+
 export default {
     data() {
         return {
             countTourist: 2,
             countCooksPerDay: 2,
-            countDays: 10,
+            countDays: 6,
             boilingTime: "04:43",
             gasConsumption: 140,
-            gasWeight: 0,
+            totalGasWeight: 0,
             gas450Cartridge: 0,
 
             valid: false,
@@ -179,9 +192,9 @@ export default {
                 this.countCooksPerDay *
                 this.countDays;
 
-            this.gasWeight = Math.round(result);
+            this.totalGasWeight = Math.round(result);
 
-            this.gas450Cartridge = Math.ceil(this.gasWeight / 450);
+            this.gas450Cartridge = Math.ceil(this.totalGasWeight / 450);
 
             console.group("calculateGasWeight");
             console.log("potVolume", potVolume);
@@ -192,13 +205,23 @@ export default {
             console.log("gas450Cartridge", this.gas450Cartridge);
             console.groupEnd();
 
-            return this.gasWeight;
+            return this.totalGasWeight;
         },
+
+        /**
+         * Остаток газа в неполном баллоне
+         */
+        calculateResidue() {
+            return this.totalGasWeight % 450;
+        },
+    },
+    components: {
+        IncompleteGasCartridge,
     },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 img {
     height: 100px;
 }
