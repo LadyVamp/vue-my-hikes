@@ -123,7 +123,7 @@
                     {{ calculateResidue() }} г:
                 </p>
                 <IncompleteGasCartridge
-                    :percent="(calculateResidue() / 450).toFixed(2) * 100"
+                    :percent="Math.floor((calculateResidue() / 450) * 100)"
                 />
             </v-col>
         </v-row>
@@ -136,9 +136,9 @@ import IncompleteGasCartridge from "@/components/Hike/IncompleteGasCartridge.vue
 export default {
     data() {
         return {
-            countTourist: 2,
+            countTourist: 5,
             countCooksPerDay: 2,
-            countDays: 6,
+            countDays: 7,
             boilingTime: "04:43",
             gasConsumption: 140,
             totalGasWeight: 0,
@@ -203,6 +203,7 @@ export default {
             console.log("result", result);
             console.log("Math.ceil(result)", Math.ceil(result));
             console.log("gas450Cartridge", this.gas450Cartridge);
+            console.log("percent for IncompleteGasCartridge", Math.floor((this.totalGasWeight % 450 / 450) * 100));
             console.groupEnd();
 
             return this.totalGasWeight;
