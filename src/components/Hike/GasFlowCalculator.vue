@@ -136,9 +136,9 @@ import IncompleteGasCartridge from "@/components/Hike/IncompleteGasCartridge.vue
 export default {
     data() {
         return {
-            countTourist: 5,
+            countTourist: 9,
             countCooksPerDay: 2,
-            countDays: 7,
+            countDays: 11,
             boilingTime: "04:43",
             gasConsumption: 140,
             totalGasWeight: 0,
