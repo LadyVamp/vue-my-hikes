@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GasFlowCalculator from "@/components/Hike/GasFlowCalculator";
+import GasFlowCalculator from "@/components/Calculator/GasFlowCalculator";
 
 export default {
     components: {

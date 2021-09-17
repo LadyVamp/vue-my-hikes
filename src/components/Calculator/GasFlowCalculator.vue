@@ -99,7 +99,7 @@
             <v-col v-else>
                 Количество баллонов 450г: <b>{{ gas450Cartridge }}</b>
                 <transition-group
-                    v-if="gas450Cartridge < 20"
+                    v-if="gas450Cartridge < 15 && this.$vuetify.breakpoint.width > 768"
                     name="fade"
                     tag="figure"
                 >
@@ -114,7 +114,7 @@
                     <p class="py-4">× {{ gas450Cartridge }}</p>
                 </figure>
             </v-col>
-            <v-col>
+            <v-col v-if="totalGasWeight > 230">
                 <p v-if="gas450Cartridge === 1">
                     1 неполный баллон {{ calculateResidue() }} г
                 </p>
@@ -131,7 +131,7 @@
 </template>
 
 <script>
-import IncompleteGasCartridge from "@/components/Hike/IncompleteGasCartridge.vue";
+import IncompleteGasCartridge from "@/components/Calculator/IncompleteGasCartridge.vue";
 
 export default {
     data() {
@@ -201,7 +201,6 @@ export default {
             console.log("boilingTimeInSeconds", boilingTimeInSeconds);
             console.log("gasConsumptionPerOneLiter", gasConsumptionPerOneLiter);
             console.log("result", result);
-            console.log("Math.ceil(result)", Math.ceil(result));
             console.log("gas450Cartridge", this.gas450Cartridge);
             console.log("percent for IncompleteGasCartridge", Math.floor((this.totalGasWeight % 450 / 450) * 100));
             console.groupEnd();

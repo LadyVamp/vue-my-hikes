@@ -1,6 +1,10 @@
 <template>
     <div>
         <div class="percent">{{ percent }}%</div>
+        <div class="cap">
+            <div class="trapezoid"></div>
+            <div class="rectangle"></div>
+        </div>
         <div class="countour">
             <div
                 :style="'--p-height: ' + percent + 'px'"
@@ -61,8 +65,28 @@ export default {
     border-bottom-right-radius: 17px 8px;
 }
 
-// туристов-готовок-дней 9-2-11 => 79%
-// туристов-готовок-дней 9-2-1 => 98%
+.trapezoid,
+.rectangle {
+    width: 25px;
+    height: 3px;
+    position: relative;
+    left: 23px;
+}
+
+.trapezoid {
+    border-bottom: 5px solid brown;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+.rectangle {
+    background: maroon;
+}
+
+/**
+    туристов-готовок-дней 
+    9-2-11 => 79%
+    9-2-1 => 98%
+*/
 .bound_79 {
     border-top-left-radius: 2px 8px;
     border-top-right-radius: 2px 8px;
