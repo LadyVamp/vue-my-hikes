@@ -3,8 +3,10 @@
         <div>
             <h2>{{ item.name }}</h2>
             <p>
-                <b>Регион:</b> 
-                <FlagIcon :country="item.region" class="d-inline px-1"/>{{ item.region }}
+                <b>Регион:</b>
+                <FlagIcon :country="item.region" class="d-inline px-1" />{{
+                    item.region
+                }}
                 <span v-if="item.district">({{ item.district }})</span>
             </p>
             <p><b>Даты:</b> {{ item.dates }}</p>
@@ -25,7 +27,12 @@
             <p><b>Протяженность:</b> {{ item.distance }} км</p>
         </div>
         <div class="d-flex flex-column">
-            <LinkButton v-if="item.report" label="Отчет" :link="item.report" :icon="'mdi-file'"/>
+            <LinkButton
+                v-if="item.report"
+                label="Отчет"
+                :link="item.report"
+                :icon="'mdi-file'"
+            />
             <LinkButton
                 :label="'Трек ' + extractHostname(item.track)"
                 :link="item.track"
@@ -42,12 +49,23 @@ import BackButton from "@/components/Buttons/BackButton.vue";
 import FlagIcon from "@/components/Hike/FlagIcon.vue";
 
 export default {
+    data() {
+        return {
+            title: "",
+        };
+    },
+    metaInfo() {
+        return {
+            title: this.title,
+        };
+    },
     computed: {
         item() {
             if (this.$store.getters.HIKES) {
                 const item = this.$store.getters.HIKES.find(
                     (item) => item.id === +this.$route.params.id
                 );
+                this.title = item.name;
                 return item;
             }
         },
@@ -69,7 +87,7 @@ export default {
     components: {
         LinkButton,
         BackButton,
-        FlagIcon
+        FlagIcon,
     },
 };
 </script>

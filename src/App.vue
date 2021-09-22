@@ -30,10 +30,10 @@ export default {
         TheHeader,
         TheFooter,
     },
-
-    data: () => ({
-        //
-    }),
+    metaInfo: {
+        title: "База треков моих походов",
+        titleTemplate: "%s | LadyVamp's hikes",
+    },
 };
 </script>
 
