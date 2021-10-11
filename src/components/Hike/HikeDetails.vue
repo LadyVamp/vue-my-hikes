@@ -10,7 +10,7 @@
                 <span v-if="item.district">({{ item.district }})</span>
             </p>
             <p><b>Даты:</b> {{ item.dates }}</p>
-            <p><b>Ходовых дней: </b>{{ dayDiff() }}</p>
+            <p><b>Количество дней: </b>{{ dayDiff() }}</p>
             <p>
                 <b>Тип:</b>
                 <span v-if="item.type === 'bike'" title="Велосипедный поход">

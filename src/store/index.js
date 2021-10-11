@@ -22,9 +22,15 @@ export const store = new Vuex.Store({
   },
 
   actions: {
+	/**
+	 * Как добавить новый поход
+	 * 1. отредактировать hikes-MM-DD.json в assets
+	 * 2. открыть gist.github.com/LadyVamp и перезаписать secret gist с заменой названия
+	 * 3. вставить в запрос Raw
+	 */
     GET_HIKE: (context, payload) => {
       axios
-        .get('https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/fd95834f3ee83d5c659699f024bef8c9d245d37d/hikes-08-25.json')
+        .get('https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/6929de640c6a28b962274e3c8a876d10d47acedf/hikes-10-11.json')
         .then(response => {
           // console.log(response);
           // добавляет к каждому объекту поле dates в формате DD.MM-DD.MM.YYYY

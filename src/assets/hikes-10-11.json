@@ -69,6 +69,18 @@
             "report": "https://zen.yandex.ru/media/id/5d3eca34ae56cc00addf0751/cherez-gory-k-moriu-marshrut-30ka-60d58e07c02b5a59e6f9e364",
             "distance": 86.1,
             "type": "hiking"
+        },
+        {
+            "id": 7,
+            "name": "Навстречу солнцу",
+            "region": "Россия",
+            "district": "Республика Крым",
+            "date_start": "2021-09-25",
+            "date_end": "2021-10-05",
+            "track": "https://nakarte.me/#m=15/44.87739/35.09883&l=O&nktl=ShBPBdHyaJb-ts7QaSPSlw",
+            "report": null,
+            "distance": 150.46,
+            "type": "hiking"
         }
     ]
 }
