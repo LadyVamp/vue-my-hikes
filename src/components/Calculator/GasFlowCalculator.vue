@@ -1,21 +1,40 @@
 <template>
     <v-container>
         <h2 class="font-weight-medium">Калькулятор расхода газа для горелки</h2>
-        <div>
-            <p>
-                Калькулятор поможет рассчитать, сколько баллонов с газом взять в
-                поход.
-            </p>
-            <p>
-                Параметры горелки: время закипания одного литра воды
-                (определяется эмпирическим путем) и расход газа (определяется из
-                характеристик горелки). Значения по умолчанию заданы для горелки
-                BRS-3000T.
-            </p>
-            <p>
-                В расчете используются резьбовые баллоны объемом 100г/230г/450г.
-            </p>
-        </div>
+        <v-row class="d-flex">
+            <v-col sm="12" md="6" lg="6">
+                <div class="description">
+                    <p>
+                        Калькулятор поможет рассчитать, сколько баллонов с газом
+                        взять в поход.
+                    </p>
+                    <p>
+                        В расчете используются резьбовые баллоны объемом
+                        100г/230г/450г.
+                    </p>
+                    <p>
+                        Параметры горелки: время закипания одного литра воды
+                        (определяется эмпирическим путем) и расход газа
+                        (определяется из характеристик горелки). Значения по
+                        умолчанию заданы для горелки BRS-3000T
+                        <v-btn
+                            @click="isShowTable = !isShowTable"
+                            title="Показать таблицу с эмпирическими данными"
+                            fab
+                            dark
+                            x-small
+                            color="#73C573"
+                        >
+                            <v-icon dark> mdi-flask </v-icon>
+                        </v-btn>
+                    </p>
+                </div>
+            </v-col>
+            <v-col v-if="isShowTable">
+                <EmpiricTable />
+            </v-col>
+        </v-row>
+
         <v-form v-model="valid">
             <v-row>
                 <v-col cols="12" sm="4" md="3" lg="2">
@@ -99,7 +118,10 @@
             <v-col v-else>
                 Количество баллонов 450г: <b>{{ gas450Cartridge }}</b>
                 <transition-group
-                    v-if="gas450Cartridge < 15 && this.$vuetify.breakpoint.width > 768"
+                    v-if="
+                        gas450Cartridge < 15 &&
+                        this.$vuetify.breakpoint.width > 768
+                    "
                     name="fade"
                     tag="figure"
                 >
@@ -132,14 +154,15 @@
 
 <script>
 import IncompleteGasCartridge from "@/components/Calculator/IncompleteGasCartridge.vue";
+import EmpiricTable from "@/components/Calculator/EmpiricTable.vue";
 
 export default {
     data() {
         return {
-            countTourist: 9,
+            countTourist: 2,
             countCooksPerDay: 2,
-            countDays: 11,
-            boilingTime: "04:43",
+            countDays: 10,
+            boilingTime: "06:29",
             gasConsumption: 140,
             totalGasWeight: 0,
             gas450Cartridge: 0,
@@ -166,6 +189,8 @@ export default {
                 (v) => !!v || "Поле обязательно для заполнения",
                 (v) => v > 0 || "Ожидается положительное число",
             ],
+
+            isShowTable: false,
         };
     },
     methods: {
@@ -202,7 +227,10 @@ export default {
             console.log("gasConsumptionPerOneLiter", gasConsumptionPerOneLiter);
             console.log("result", result);
             console.log("gas450Cartridge", this.gas450Cartridge);
-            console.log("percent for IncompleteGasCartridge", Math.floor((this.totalGasWeight % 450 / 450) * 100));
+            console.log(
+                "percent for IncompleteGasCartridge",
+                Math.floor(((this.totalGasWeight % 450) / 450) * 100)
+            );
             console.groupEnd();
 
             return this.totalGasWeight;
@@ -217,6 +245,7 @@ export default {
     },
     components: {
         IncompleteGasCartridge,
+        EmpiricTable,
     },
 };
 </script>
@@ -235,5 +264,11 @@ figure p {
 .fade-enter,
 .fade-leave-to {
     opacity: 0;
+}
+
+@media screen and (min-width: 900px) {
+    .description {
+        height: 320px;
+    }
 }
 </style>
