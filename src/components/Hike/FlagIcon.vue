@@ -37,7 +37,7 @@ export default {
                 // Абхазии нет на https://flagicons.lipis.dev/
                 return countryName === "Абхазия"
                     ? "https://snipboard.io/1OnRJ2.jpg"
-                    : "https://lipis.github.io/flag-icon-css/flags/4x3/" +
+                    : "https://flagicons.lipis.dev/flags/4x3/" +
                           this.countryCodeDict[countryName] +
                           ".svg";
             }
