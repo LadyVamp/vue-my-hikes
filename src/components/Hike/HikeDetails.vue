@@ -38,6 +38,7 @@
                 :link="item.track"
                 :icon="'mdi-map-marker-multiple'"
             />
+            <YoutubeButton v-if="item.video" :link="item.video" />
         </div>
         <BackButton />
     </div>
@@ -46,6 +47,7 @@
 <script>
 import LinkButton from "@/components/Buttons/LinkButton.vue";
 import BackButton from "@/components/Buttons/BackButton.vue";
+import YoutubeButton from "@/components/Buttons/YoutubeButton.vue";
 import FlagIcon from "@/components/Hike/FlagIcon.vue";
 
 export default {
@@ -88,6 +90,7 @@ export default {
         LinkButton,
         BackButton,
         FlagIcon,
+        YoutubeButton,
     },
 };
 </script>

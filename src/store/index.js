@@ -30,7 +30,7 @@ export const store = new Vuex.Store({
 	 */
     GET_HIKE: (context, payload) => {
       axios
-        .get('https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/cd100f08fd10cc4f2bb3f37dad4e49cbabe26165/hikes-10-11.json')
+        .get('https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/1d4979ad1812185e4cf699a4c4d1095a6d404128/hikes-11-18.json')
         .then(response => {
           // console.log(response);
           // добавляет к каждому объекту поле dates в формате DD.MM-DD.MM.YYYY
