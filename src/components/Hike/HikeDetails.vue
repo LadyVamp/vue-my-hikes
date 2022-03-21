@@ -34,7 +34,7 @@
                 :icon="'mdi-file'"
             />
             <LinkButton
-                :label="'Трек ' + extractHostname(item.track)"
+                :label="'Трек'"
                 :link="item.track"
                 :icon="'mdi-map-marker-multiple'"
             />
@@ -76,10 +76,6 @@ export default {
         this.$store.dispatch("GET_HIKE");
     },
     methods: {
-        extractHostname(url) {
-            let host = new URL(url).host;
-            return host.includes("www.") ? host.slice(4) : host;
-        },
         dayDiff() {
             const date1 = new Date(this.item.date_start);
             const date2 = new Date(this.item.date_end);

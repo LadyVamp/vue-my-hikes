@@ -7,7 +7,7 @@
             "district": "Нижегородская область",
             "date_start": "2017-09-16",
             "date_end": "2017-09-22",
-            "track": "https://www.gpsies.com/mapFolder.do?id=98189",
+            "track": "https://nakarte.me/#m=9/55.15847/43.46466&l=O&nktl=QCMdXqr4fNLS8ZEH_wz7VA",
             "report": "http://tkmgtu.ru/files/velo/otchet/1kc_Averina_Nizhegorodskaya_obl_2017.pdf",
             "distance": 355.2,
             "type": "bike"
@@ -18,7 +18,7 @@
             "region": "Абхазия, Россия",
             "date_start": "2018-04-28",
             "date_end": "2018-05-13",
-            "track": "https://www.gpsies.com/map.do?fileId=jpmzllxfszzjatsv",
+            "track": "https://nakarte.me/#m=8/44.24284/39.39148&l=O&nktl=KiFrxZ0JRLnh86eDZWA6EA",
             "report": null,
             "distance": 631.87,
             "type": "bike"
@@ -30,7 +30,7 @@
             "district": "Мурманская область",
             "date_start": "2018-07-14",
             "date_end": "2018-07-29",
-            "track": "https://www.gpsies.com/map.do?fileId=ghqkvmkegjdrkwbk",
+            "track": "https://nakarte.me/#m=7/67.30598/35.26611&l=O&nktl=vs7rZahzGJzkQD9KyO4Qog",
             "report": "https://drive.google.com/drive/u/0/folders/1-7M09DJhyAeIiVkqZAmAQoh98m3S2peq",
             "distance": 623.19,
             "type": "bike"
@@ -42,7 +42,7 @@
             "district": "Республика Крым",
             "date_start": "2019-04-30",
             "date_end": "2019-05-15",
-            "track": "https://www.gpsies.com/map.do?fileId=pguhcytgaiqkexrn",
+            "track": "https://nakarte.me/#m=8/45.01919/36.01318&l=O&nktl=R47v6Xdg369iSp9KZ4M-qA",
             "report": "https://zen.yandex.ru/media/id/5d3eca34ae56cc00addf0751/beguscie-za-solncem-velopohod-iz-kavkaza-v-krym-i-5d41c35746f4ff00ad446484",
             "distance": 665.75,
             "type": "bike"
@@ -53,7 +53,7 @@
             "region": "Армения, Азербайджан, Грузия",
             "date_start": "2019-09-14",
             "date_end": "2019-09-28",
-            "track": "https://www.gpsies.com/map.do?fileId=qtekctbpgrepjjhj",
+            "track": "https://nakarte.me/#m=8/40.92181/47.21924&l=O&nktl=8VJflRCcbaQcbhsTIEJukQ",
             "report": null,
             "distance": 938.52,
             "type": "bike"
@@ -65,7 +65,7 @@
             "district": "Краснодарский край",
             "date_start": "2021-06-13",
             "date_end": "2021-06-17",
-            "track": "https://nakarte.me/#m=11/43.96193/39.92157&l=O/J&nktl=qFWWNS3OZpTVRQS3gZG4xg",
+            "track": "https://nakarte.me/#m=10/43.96193/39.92157&l=O/J&nktl=qFWWNS3OZpTVRQS3gZG4xg",
             "report": "https://zen.yandex.ru/media/id/5d3eca34ae56cc00addf0751/cherez-gory-k-moriu-marshrut-30ka-60d58e07c02b5a59e6f9e364",
             "distance": 86.1,
             "type": "hiking"
@@ -77,7 +77,7 @@
             "district": "Республика Крым",
             "date_start": "2021-09-25",
             "date_end": "2021-10-05",
-            "track": "https://nakarte.me/#m=11/44.89682/34.96971&l=O&nktl=ShBPBdHyaJb-ts7QaSPSlw",
+            "track": "https://nakarte.me/#m=10/44.92903/34.89780&l=O&nktl=ShBPBdHyaJb-ts7QaSPSlw",
             "report": null,
             "distance": 150.46,
             "type": "hiking"
