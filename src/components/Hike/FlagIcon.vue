@@ -4,7 +4,7 @@
             v-for="n in numberOfCountries(country)"
             :key="n"
             class="flag"
-            v-bind:src="getFlagSrc(country.split(', ')[n - 1])"
+            :src="getFlagSrc(country.split(', ')[n - 1])"
         />
     </figure>
 </template>

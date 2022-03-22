@@ -18,12 +18,12 @@
                         (определяется из характеристик горелки). Значения по
                         умолчанию заданы для горелки BRS-3000T
                         <v-btn
-                            @click="isShowTable = !isShowTable"
                             title="Показать таблицу с эмпирическими данными"
                             fab
                             dark
                             x-small
                             color="#73C573"
+                            @click="isShowTable = !isShowTable"
                         >
                             <v-icon dark> mdi-flask </v-icon>
                         </v-btn>
@@ -39,8 +39,8 @@
             <v-row>
                 <v-col cols="12" sm="4" md="3" lg="2">
                     <v-text-field
-                        label="Количество туристов"
                         v-model="countTourist"
+                        label="Количество туристов"
                         type="number"
                         min="1"
                         max="30"
@@ -50,8 +50,8 @@
                 </v-col>
                 <v-col cols="12" sm="4" md="3" lg="2">
                     <v-text-field
-                        label="Количество готовок в день"
                         v-model="countCooksPerDay"
+                        label="Количество готовок в день"
                         type="number"
                         min="1"
                         max="3"
@@ -61,8 +61,8 @@
                 </v-col>
                 <v-col cols="12" sm="4" md="3" lg="2">
                     <v-text-field
-                        label="Количество дней"
                         v-model="countDays"
+                        label="Количество дней"
                         type="number"
                         min="1"
                         max="30"
@@ -74,16 +74,16 @@
             <v-row>
                 <v-col cols="12" sm="4" md="3" lg="2">
                     <v-text-field
-                        label="Время закипания 1 литра воды"
                         v-model="boilingTime"
+                        label="Время закипания 1 литра воды"
                         type="time"
                         suffix="мм:сс"
                     ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="4" md="3" lg="2">
                     <v-text-field
-                        label="Расход газа"
                         v-model="gasConsumption"
+                        label="Расход газа"
                         type="number"
                         min="1"
                         suffix="г/час"
@@ -94,7 +94,7 @@
             </v-row>
         </v-form>
 
-        <v-btn color="accent" @click="calculateGasWeight()" :disabled="!valid">
+        <v-btn color="accent" :disabled="!valid" @click="calculateGasWeight()">
             <v-icon class="pr-1"> mdi-fire </v-icon>
             Рассчитать
         </v-btn>
@@ -157,6 +157,10 @@ import IncompleteGasCartridge from "@/components/Calculator/IncompleteGasCartrid
 import EmpiricTable from "@/components/Calculator/EmpiricTable.vue";
 
 export default {
+    components: {
+        IncompleteGasCartridge,
+        EmpiricTable,
+    },
     data() {
         return {
             countTourist: 2,
@@ -242,10 +246,6 @@ export default {
         calculateResidue() {
             return this.totalGasWeight % 450;
         },
-    },
-    components: {
-        IncompleteGasCartridge,
-        EmpiricTable,
     },
 };
 </script>

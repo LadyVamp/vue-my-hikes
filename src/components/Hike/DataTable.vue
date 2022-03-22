@@ -62,6 +62,9 @@
 import FlagIcon from "@/components/Hike/FlagIcon.vue";
 
 export default {
+    components: {
+        FlagIcon,
+    },
     data() {
         return {
             search: "",
@@ -88,9 +91,6 @@ export default {
                 ? link.slice(0, 30) + "..."
                 : link;
         },
-    },
-    components: {
-        FlagIcon,
     },
 };
 </script>
