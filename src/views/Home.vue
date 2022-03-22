@@ -1,18 +1,17 @@
 <template>
-    <div>
-        <DataTable />
-    </div>
+  <div>
+    <DataTable />
+  </div>
 </template>
 
 <script>
-import DataTable from "@/components/Hike/DataTable";
+import DataTable from '@/components/Hike/DataTable';
 
 export default {
-    components: {
-        DataTable,
-    },
+  components: {
+    DataTable,
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

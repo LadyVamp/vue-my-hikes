@@ -6,22 +6,22 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    component: () => import("@/views/Home"),
+    path: '/',
+    component: () => import('@/views/Home'),
   },
   {
-    path: "/calculator",
-    component: () => import("@/views/Calculator"),
+    path: '/calculator',
+    component: () => import('@/views/Calculator'),
   },
   {
     path: '/hike/:id',
-    component: HikeDetails
+    component: HikeDetails,
   },
   {
     path: '*',
-    redirect: '/'
+    redirect: '/',
   },
-]
+];
 
 const router = new VueRouter({
   base: process.env.BASE_URL,
