@@ -97,10 +97,12 @@
     </v-btn>
 
     <v-row v-if="totalGasWeight !== 0" class="d-flex flex-column my-2">
-      <v-col>Результат: {{ totalGasWeight }} г</v-col>
+      <v-col>Вес газа (нетто): {{ totalGasWeight }} г</v-col>
       <v-col v-if="totalGasWeight <= 100">
         Баллонов, шт (1 баллон <b>100</b> г):
         {{ Math.ceil(totalGasWeight / 100) }}
+        <br />
+        Вес баллонов (брутто): {{ GAS_100_CARTRIDGE_GROSS_WEIGHT }} г
         <figure>
           <img src="../../assets/gas/gas100.jpg" alt="" />
         </figure>
@@ -108,12 +110,16 @@
       <v-col v-else-if="totalGasWeight > 100 && totalGasWeight <= 230">
         Баллонов, шт (1 баллон <b>230</b> г):
         {{ Math.ceil(totalGasWeight / 230) }}
+        <br />
+        Вес баллонов (брутто): {{ GAS_230_CARTRIDGE_GROSS_WEIGHT }} г
         <figure>
           <img src="../../assets/gas/gas230.jpg" alt="" />
         </figure>
       </v-col>
       <v-col v-else>
         Количество баллонов 450г: <b>{{ gas450Cartridge }}</b>
+        <br />
+        Вес баллонов (брутто): {{ totalWeight }} г
         <transition-group
           v-if="gas450Cartridge < 15 && this.$vuetify.breakpoint.width > 768"
           name="fade"
@@ -148,6 +154,9 @@ export default {
   },
   data() {
     return {
+      GAS_100_CARTRIDGE_GROSS_WEIGHT: 210,
+      GAS_230_CARTRIDGE_GROSS_WEIGHT: 380,
+      GAS_450_CARTRIDGE_GROSS_WEIGHT: 670,
       countTourist: 2,
       countCooksPerDay: 2,
       countDays: 10,
@@ -177,6 +186,11 @@ export default {
 
       isShowTable: false,
     };
+  },
+  computed: {
+    totalWeight() {
+      return this.gas450Cartridge * this.GAS_450_CARTRIDGE_GROSS_WEIGHT;
+    },
   },
   methods: {
     /**
