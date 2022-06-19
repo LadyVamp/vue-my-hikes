@@ -31,7 +31,7 @@ export default {
     fetchHikes(context, hikeId) {
       axios
         .get(
-          'https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/a2af3ea185c02ea6efacdabfafa88a9ce28c5907/hikes-03-21.json',
+          'https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/b83a65d60c67df79ac5d1e5e57c250a538fb5fcf/hikes-2022-06-19.json',
         )
         .then((response) => {
           // console.log(response);

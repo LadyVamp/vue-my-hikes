@@ -26,8 +26,9 @@
     </div>
     <div class="d-flex flex-column">
       <LinkButton v-if="hike.report" label="Отчет" :link="hike.report" :icon="'mdi-file'" />
-      <LinkButton :label="'Трек'" :link="hike.track" :icon="'mdi-map-marker-multiple'" />
+      <LinkButton :label="'Трек на карте'" :link="hike.track" :icon="'mdi-map-marker-multiple'" />
       <YoutubeButton v-if="hike.video" :link="hike.video" />
+      <LinkButton label="Скачать трек" :link="`tracks/${hike.id}.kml`" :icon="'mdi-download'" />
     </div>
     <BackButton />
   </div>
@@ -65,7 +66,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch('fetchHikes', +this.$route.params.id);
+    this.$store.dispatch('fetchHikes', this.$route.params.id);
   },
   methods: {
     dayDiff() {
