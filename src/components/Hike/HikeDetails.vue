@@ -8,7 +8,7 @@
         <span v-if="hike.district">({{ hike.district }})</span>
       </p>
       <p><b>Даты:</b> {{ hike.dates }}</p>
-      <p><b>Количество дней: </b>{{ dayDiff() }}</p>
+      <p><b>Количество ходовых дней: </b>{{ daysOnTrack }}</p>
       <p>
         <b>Тип:</b>
         <span v-if="hike.type === 'bike'" title="Велосипедный поход">
@@ -56,6 +56,11 @@ export default {
     hike() {
       return this.$store.getters.getCurrentHike;
     },
+    daysOnTrack() {
+      const date1 = new Date(this.hike.date_start);
+      const date2 = new Date(this.hike.date_end);
+      return 1 + Math.abs(date1.getTime() - date2.getTime()) / 86400000;
+    },
   },
   updated() {
     this.title = this.hike.name;
@@ -67,13 +72,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('fetchHikes', this.$route.params.id);
-  },
-  methods: {
-    dayDiff() {
-      const date1 = new Date(this.hike.date_start);
-      const date2 = new Date(this.hike.date_end);
-      return Math.abs(date1.getTime() - date2.getTime()) / 86400000;
-    },
   },
 };
 </script>
