@@ -81,6 +81,18 @@
             "report": null,
             "distance": 150.46,
             "type": "hiking"
+        },
+        {
+            "id": "Altai-2022",
+            "name": "Алтай 2022",
+            "region": "Россия",
+            "district": "Республика Алтай",
+            "date_start": "2022-07-03",
+            "date_end": "2022-07-13",
+            "track": "https://nakarte.me/#m=11/49.99847/86.49467&l=O&nktl=sDSomrQSQq17JR8uAOhLQQ",
+            "report": null,
+            "distance": 169,
+            "type": "hiking"
         }
     ]
 }
