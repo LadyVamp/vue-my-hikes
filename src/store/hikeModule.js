@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { getAllHikes } from '../api/api';
 
 export default {
   state: {
@@ -22,17 +22,8 @@ export default {
     },
   },
   actions: {
-    /**
-     * Как добавить новый поход
-     * 1. отредактировать hikes-MM-DD.json в assets
-     * 2. открыть gist.github.com/LadyVamp и перезаписать secret gist с заменой названия
-     * 3. вставить в запрос Raw
-     */
     fetchHikes(context, hikeId) {
-      axios
-        .get(
-          'https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/f5b91071933270e09bc0efcfda55e82db7e88113/hikes-2022-07-16.json',
-        )
+        getAllHikes()
         .then((response) => {
           // console.log(response);
           // добавляет к каждому объекту поле dates в формате DD.MM-DD.MM.YYYY
