@@ -12,6 +12,10 @@
             <v-icon class="pr-1">mdi-calculator</v-icon>
             Калькулятор
           </v-tab>
+          <v-tab to="/weekendhike">
+            <v-icon class="pr-1">mdi-map</v-icon>
+            ПВД
+          </v-tab>
         </v-tabs>
         <router-view />
       </v-container>

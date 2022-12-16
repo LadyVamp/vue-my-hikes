@@ -20,7 +20,13 @@
         <v-tab-item>
           <v-card flat>
             <v-card-text>
-              Лыжи 2021-2022
+              Лыжи 2022
+              <LinkButton
+                :label="'Треки на карте'"
+                :link="links['ski2022']"
+                :icon="'mdi-map-marker-multiple'"
+              />
+              Лыжи 2021
               <LinkButton
                 :label="'Треки на карте'"
                 :link="links['ski2021']"
@@ -57,7 +63,8 @@ export default {
   data() {
     return {
       links: {
-        ski2021: 'https://nakarte.me/#m=10/55.83716/38.20221&l=O&nktl=q-moXVXl2vvYp0i4P9MKGQ',
+        ski2022: 'https://nakarte.me/#m=10/55.83716/38.20221&l=O&nktl=q-moXVXl2vvYp0i4P9MKGQ',
+        ski2021: 'https://nakarte.me/#m=9/55.70622/37.89734&l=O&nktl=O1XNrzzifW9lYXGnYAg-Zg',
         kayak2022: 'https://nakarte.me/#m=8/55.62334/38.28186&l=O&nktl=WMwSOEN_FnB3iynPmfCE6Q',
       },
     };
