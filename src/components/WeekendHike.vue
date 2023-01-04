@@ -76,8 +76,13 @@ export default {
       kayakTracks: [
         {
           title: 'Байдарка 2022',
-          key: 'ski2022',
+          key: 'kayak2022',
           link: 'https://nakarte.me/#m=8/55.62334/38.28186&l=O&nktl=WMwSOEN_FnB3iynPmfCE6Q',
+        },
+        {
+          title: 'Надувная лодка 2021',
+          key: 'inflatableBoat2021',
+          link: 'https://nakarte.me/#m=8/55.70081/37.96326&l=O&nktl=YEm6gnF3OXVZHSwor-BuTQ',
         },
       ],
     };
