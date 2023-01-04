@@ -32,6 +32,12 @@
                 :link="links['ski2021']"
                 :icon="'mdi-map-marker-multiple'"
               />
+              Лыжи 2019
+              <LinkButton
+                :label="'Треки на карте'"
+                :link="links['ski2019']"
+                :icon="'mdi-map-marker-multiple'"
+              />
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -65,6 +71,7 @@ export default {
       links: {
         ski2022: 'https://nakarte.me/#m=10/55.83716/38.20221&l=O&nktl=q-moXVXl2vvYp0i4P9MKGQ',
         ski2021: 'https://nakarte.me/#m=9/55.70622/37.89734&l=O&nktl=O1XNrzzifW9lYXGnYAg-Zg',
+        ski2019: 'https://nakarte.me/#m=9/55.68146/37.88361&l=O&nktl=4jcvaIU4Va78zDAgNSoP9g',
         kayak2022: 'https://nakarte.me/#m=8/55.62334/38.28186&l=O&nktl=WMwSOEN_FnB3iynPmfCE6Q',
       },
     };
