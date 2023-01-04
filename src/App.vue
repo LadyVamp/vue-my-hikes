@@ -16,6 +16,10 @@
             <v-icon class="pr-1">mdi-map</v-icon>
             ПВД
           </v-tab>
+          <v-tab to="/dev">
+            <v-icon class="pr-1">mdi-code-tags</v-icon>
+            Dev
+          </v-tab>
         </v-tabs>
         <router-view />
       </v-container>
