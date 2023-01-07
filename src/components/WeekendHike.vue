@@ -72,6 +72,11 @@ export default {
           key: 'ski2019',
           link: 'https://nakarte.me/#m=9/55.68146/37.88361&l=O&nktl=4jcvaIU4Va78zDAgNSoP9g',
         },
+        {
+          title: 'Лыжи 2018',
+          key: 'ski2018',
+          link: 'https://nakarte.me/#m=9/55.72634/37.83966&l=O&nktl=qI8i0o0k_hWUc9T2s18L3Q',
+        },
       ],
       kayakTracks: [
         {
