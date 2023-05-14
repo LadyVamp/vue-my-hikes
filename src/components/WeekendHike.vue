@@ -85,6 +85,11 @@ export default {
       ],
       kayakTracks: [
         {
+          title: 'Байдарка 2023',
+          key: 'kayak2023',
+          link: 'https://nakarte.me/#m=12/55.50103/38.73919&l=O&nktl=G5HYVB837AxD7mzguSjBqw',
+        },
+        {
           title: 'Байдарка 2022',
           key: 'kayak2022',
           link: 'https://nakarte.me/#m=8/55.62334/38.28186&l=O&nktl=WMwSOEN_FnB3iynPmfCE6Q',
