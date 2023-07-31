@@ -36,6 +36,18 @@
             "type": "bike"
         },
         {
+            "id": "Doroga-sna-2020",
+            "name": "Дорога сна",
+            "region": "Россия",
+            "district": "Туапсинский район",
+            "date_start": "2019-12-31",
+            "date_end": "2020-01-04",
+            "track": "https://nakarte.me/#m=12/44.05465/39.41277&l=O&nktl=M_5NRFQ_gBbbJKanle9LCA",
+            "report": null,
+            "distance": 36,
+            "type": "hiking"
+        },
+        {
             "id": "Krim-2019",
             "name": "Велопутешествие из Кавказа в Крым",
             "region": "Россия",
@@ -92,6 +104,18 @@
             "track": "https://nakarte.me/#m=11/49.99847/86.49467&l=O&nktl=sDSomrQSQq17JR8uAOhLQQ",
             "report": null,
             "distance": 169,
+            "type": "hiking"
+        },
+        {
+            "id": "Baikal-2023",
+            "name": "Большая Байкальская Тропа 2023",
+            "region": "Россия",
+            "district": "Иркутская область",
+            "date_start": "2023-07-15",
+            "date_end": "2023-07-22",
+            "track": "https://nakarte.me/#m=10/52.18067/105.39734&l=O/W&nktl=ItPjrGBI-hNTkmBuWXa-3g",
+            "report": null,
+            "distance": 155,
             "type": "hiking"
         }
     ]
