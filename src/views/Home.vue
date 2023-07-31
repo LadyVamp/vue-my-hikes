@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <DataTable />
-  </div>
+  <DataTable />
 </template>
 
 <script>

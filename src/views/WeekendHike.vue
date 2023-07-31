@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <WeekendHike />
-  </div>
+  <WeekendHike />
 </template>
 
 <script>

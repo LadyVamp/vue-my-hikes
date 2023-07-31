@@ -17,13 +17,16 @@ export default {
     getAllHikes: (state) => {
       return state.hikes;
     },
+    getAllHikesCounter: (state) => {
+      return state.hikes.length;
+    },
     getCurrentHike(state) {
       return state.currentHike;
     },
   },
   actions: {
     fetchHikes(context, hikeId) {
-        getAllHikes()
+      getAllHikes()
         .then((response) => {
           // console.log(response);
           // добавляет к каждому объекту поле dates в формате DD.MM-DD.MM.YYYY

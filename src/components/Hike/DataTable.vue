@@ -6,7 +6,7 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Поиск"
+        :label="'Поиск по ' + hikesCount + ' маршрутам'"
         single-line
         hide-details
       ></v-text-field>
@@ -71,6 +71,9 @@ export default {
     };
   },
   computed: {
+    hikesCount() {
+      return this.$store.getters.getAllHikesCounter;
+    },
     hikesList() {
       return this.$store.getters.getAllHikes;
     },

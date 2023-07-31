@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <GasFlowCalculator />
-  </div>
+  <GasFlowCalculator />
 </template>
 
 <script>
