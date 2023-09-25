@@ -7,7 +7,7 @@
 const axios = require('axios');
 
 const hikes =
-  'https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/80bce84b2a5b596b001fe563c0bdfe84fbd218e3/hikes-2023-07-31.json';
+  'https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/ac44928fed0fc3a13fc8cca99081db3fe7b741a2/hikes-2023-09-25.json';
 
 export async function getAllHikes() {
   const response = await axios.get(hikes);

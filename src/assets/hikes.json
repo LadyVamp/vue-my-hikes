@@ -117,6 +117,18 @@
             "report": null,
             "distance": 155,
             "type": "hiking"
+        },
+        {
+            "id": "Vokrug-Elbrusa-2023",
+            "name": "Вокруг Эльбруса 2023",
+            "region": "Россия",
+            "district": "Карачаево-Черкесская Республика, Кабардино-Балкарская Республика",
+            "date_start": "2023-09-12",
+            "date_end": "2023-09-20",
+            "track": "https://nakarte.me/#m=11/43.39108/42.24380&l=O&nktl=t0_Orqz_6bWmhm0a4wm7xA",
+            "report": null,
+            "distance": 150,
+            "type": "hiking"
         }
     ]
 }
