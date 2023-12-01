@@ -6,6 +6,14 @@ import path from 'path';
 
 const REPLACEMENT = `${path.resolve(__dirname, './src')}/`;
 
+/**
+ * TODO: если так делать,
+ * "build": "vite build --mode prod --base=https://ladyvamp.github.io/vue-my-hikes/",
+ * то y home-страницы адрес https://ladyvamp.github.io/
+ *    у калькулятора https://ladyvamp.github.io/calculator
+ * должно быть https://ladyvamp.github.io/vue-my-hikes
+ *             https://ladyvamp.github.io/vue-my-hikes/calculator
+ */
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
@@ -18,7 +26,6 @@ export default defineConfig({
     vue(),
     Components({
       resolvers: [
-        // Vuetify
         VuetifyResolver(),
       ],
     }),
@@ -31,26 +38,3 @@ export default defineConfig({
   },
 });
 
-// import { defineConfig } from 'vite';
-// import vue from '@vitejs/plugin-vue2';
-// import path from 'path';
-
-// const REPLACEMENT = `${path.resolve(__dirname, './src')}/`;
-
-// export default () => {
-//   return defineConfig({
-//     define: {
-//       'process.env': {},
-//     },
-//     server: {
-//       port: 8080,
-//     },
-//     resolve: {
-//       alias: [
-//         { find: '@/', replacement: REPLACEMENT },
-//         { find: 'src/', replacement: REPLACEMENT },
-//       ],
-//     },
-//     plugins: [vue()],
-//   });
-// };
