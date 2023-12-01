@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DataTable from '@/components/Hike/DataTable';
+import DataTable from '@/components/Hike/DataTable.vue';
 
 export default {
   components: {

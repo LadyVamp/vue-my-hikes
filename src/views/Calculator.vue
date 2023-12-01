@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import GasFlowCalculator from '@/components/Calculator/GasFlowCalculator';
+import GasFlowCalculator from '@/components/Calculator/GasFlowCalculator.vue';
 
 export default {
   components: {

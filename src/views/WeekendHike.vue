@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import WeekendHike from '@/components/WeekendHike';
+import WeekendHike from '@/components/WeekendHike.vue';
 
 export default {
   components: {

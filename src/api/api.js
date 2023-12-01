@@ -4,7 +4,7 @@
  * 2. открыть gist.github.com/LadyVamp и перезаписать secret gist с заменой названия
  * 3. заменить Raw
  */
-const axios = require('axios');
+import axios from 'axios';
 
 const hikes =
   'https://gist.githubusercontent.com/LadyVamp/e5cba715273c26799cb3fad5ec656ba6/raw/ac44928fed0fc3a13fc8cca99081db3fe7b741a2/hikes-2023-09-25.json';
