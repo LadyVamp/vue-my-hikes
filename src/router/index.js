@@ -7,11 +7,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    component: () => import('@/views/Home.vue'),
+    component: () => import('@/views/HomeView.vue'),
   },
   {
     path: '/calculator',
-    component: () => import('@/views/Calculator.vue'),
+    component: () => import('@/views/CalculatorView.vue'),
   },
   {
     path: '/weekendhike',
@@ -20,6 +20,10 @@ const routes = [
   {
     path: '/dev',
     component: () => import('@/views/DevView.vue'),
+  },
+  {
+    path: '/links',
+    component: () => import('@/views/LinksView.vue'),
   },
   {
     path: '/hike/:id',

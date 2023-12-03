@@ -1,26 +1,9 @@
 <template>
   <v-app>
-    <TheHeader />
+    <TheHeader :menu-items="menuItems" />
     <v-main>
       <v-container>
-        <v-tabs>
-          <v-tab to="/">
-            <v-icon class="pr-1">mdi-routes</v-icon>
-            Маршруты
-          </v-tab>
-          <v-tab to="/calculator">
-            <v-icon class="pr-1">mdi-calculator</v-icon>
-            Калькулятор
-          </v-tab>
-          <v-tab to="/weekendhike">
-            <v-icon class="pr-1">mdi-map</v-icon>
-            ПВД
-          </v-tab>
-          <v-tab to="/dev">
-            <v-icon class="pr-1">mdi-code-tags</v-icon>
-            Dev
-          </v-tab>
-        </v-tabs>
+        <TheTabs :menu-items="menuItems" />
         <router-view />
       </v-container>
     </v-main>
@@ -31,16 +14,49 @@
 <script>
 import TheHeader from '@/components/Layout/TheHeader.vue';
 import TheFooter from '@/components/Layout/TheFooter.vue';
+import TheTabs from '@/components/Layout/TheTabs.vue';
 
 export default {
   name: 'App',
   components: {
     TheHeader,
     TheFooter,
+    TheTabs,
   },
   metaInfo: {
     title: 'База треков моих походов',
     titleTemplate: "%s | LadyVamp's hikes",
+  },
+  data() {
+    return {
+      menuItems: [
+        {
+          name: 'Маршруты',
+          path: '/',
+          icon: 'mdi-routes',
+        },
+        {
+          name: 'Калькулятор',
+          path: '/calculator',
+          icon: 'mdi-calculator',
+        },
+        {
+          name: 'ПВД',
+          path: '/weekendhike',
+          icon: 'mdi-map',
+        },
+        {
+          name: 'Dev',
+          path: '/dev',
+          icon: 'mdi-code-tags',
+        },
+        {
+          name: 'Links',
+          path: '/links',
+          icon: 'mdi-book-information-variant',
+        },
+      ],
+    };
   },
 };
 </script>
