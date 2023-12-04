@@ -36,7 +36,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  base: '/vue-my-hikes/',
+  mode: 'hash',
   routes,
 });
 

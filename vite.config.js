@@ -5,17 +5,21 @@ import Components from 'unplugin-vue-components/vite';
 import path from 'path';
 
 const REPLACEMENT = `${path.resolve(__dirname, './src')}/`;
-
 /**
- * TODO: если так делать,
- * "build": "vite build --mode prod --base=https://ladyvamp.github.io/vue-my-hikes/",
- * то y home-страницы адрес https://ladyvamp.github.io/
- *    у калькулятора https://ladyvamp.github.io/calculator
- * должно быть https://ladyvamp.github.io/vue-my-hikes
- *             https://ladyvamp.github.io/vue-my-hikes/calculator
+ * TODO:
+ * заменить mode hash на mode history, но при этом страница должна нормально обновляться, а не 404 not found
+ * hash https://ladyvamp.github.io/vue-my-hikes/#/calculator
+ * history https://ladyvamp.github.io/vue-my-hikes/calculator
+ */
+/**
+ * TODO: 
+ * нет лого => нет меню для телефона :(
+ * GET https://ladyvamp.github.io/src/assets/logo.png 404 (Not Found)
  */
 // https://vitejs.dev/config/
+
 export default defineConfig({
+  base: '/vue-my-hikes/',
   define: {
     'process.env': {},
   },
@@ -25,9 +29,7 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [
-        VuetifyResolver(),
-      ],
+      resolvers: [VuetifyResolver()],
     }),
   ],
   resolve: {
@@ -37,4 +39,3 @@ export default defineConfig({
     ],
   },
 });
-
