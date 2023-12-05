@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h2 class="primary--text">Электричкинг</h2>
     <LinkButton
-      label="МЦД: ГДЕ УСТАНОВЛЕНЫ ВАЛИДАТОРЫ?"
+      label="Список станций с валидаторами"
       link="https://www.central-ppk.ru/new/help/help_item.php?page=2776052"
       :icon="'mdi-map-marker-check-outline'"
     />

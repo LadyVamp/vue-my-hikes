@@ -11,11 +11,6 @@ const REPLACEMENT = `${path.resolve(__dirname, './src')}/`;
  * hash https://ladyvamp.github.io/vue-my-hikes/#/calculator
  * history https://ladyvamp.github.io/vue-my-hikes/calculator
  */
-/**
- * TODO: 
- * нет лого => нет меню для телефона :(
- * GET https://ladyvamp.github.io/src/assets/logo.png 404 (Not Found)
- */
 // https://vitejs.dev/config/
 
 export default defineConfig({
