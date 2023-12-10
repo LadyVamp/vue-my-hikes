@@ -5,12 +5,6 @@ import Components from 'unplugin-vue-components/vite';
 import path from 'path';
 
 const REPLACEMENT = `${path.resolve(__dirname, './src')}/`;
-/**
- * TODO:
- * заменить mode hash на mode history, но при этом страница должна нормально обновляться, а не 404 not found
- * hash https://ladyvamp.github.io/vue-my-hikes/#/calculator
- * history https://ladyvamp.github.io/vue-my-hikes/calculator
- */
 // https://vitejs.dev/config/
 
 export default defineConfig({
