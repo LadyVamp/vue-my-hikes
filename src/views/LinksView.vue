@@ -10,11 +10,6 @@
       link="https://www.central-ppk.ru/new/imap/"
       :icon="'mdi-map'"
     />
-    <LinkButton
-      label="VPN. Список станций с турникетами"
-      link="https://vk.com/topic-155711_21967995"
-      :icon="'mdi-vpn'"
-    />
     <v-row>
       <v-col class="d-flex justify-end">
         <div>
