@@ -60,7 +60,7 @@ export default {
         {
           title: 'Лыжи 2024',
           key: 'ski2024',
-          link: 'https://nakarte.me/#m=9/55.92382/38.27362&l=O&nktl=piUx1elhUfGzKpx9RG7IgA',
+          link: 'https://nakarte.me/#m=9/55.86684/37.95776&l=O&nktl=2IeYzFHVU_5Rpt4R5BXJpQ',
         },
         {
           title: 'Лыжи 2023',
