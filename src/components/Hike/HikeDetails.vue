@@ -12,14 +12,10 @@
       <p>
         <b>Тип:</b>
         <span v-if="hike.type === 'bike'" title="Велосипедный поход">
-          <v-icon large color="secondary" class="ml-2">
-            mdi-bike
-          </v-icon>
+          <v-icon large color="secondary" class="ml-2"> mdi-bike </v-icon>
         </span>
         <span v-if="hike.type === 'hiking'" title="Пеший поход">
-          <v-icon large color="secondary" class="ml-2">
-            mdi-hiking
-          </v-icon>
+          <v-icon large color="secondary" class="ml-2"> mdi-hiking </v-icon>
         </span>
       </p>
       <p><b>Протяженность:</b> {{ hike.distance }} км</p>
@@ -27,8 +23,8 @@
     <div class="d-flex flex-column">
       <LinkButton v-if="hike.report" label="Отчет" :link="hike.report" :icon="'mdi-file'" />
       <LinkButton :label="'Трек на карте'" :link="hike.track" :icon="'mdi-map-marker-multiple'" />
-      <YoutubeButton v-if="hike.video" :link="hike.video" />
       <LinkButton label="Скачать трек" :link="`tracks/${hike.id}.kml`" :icon="'mdi-download'" />
+      <YoutubeButton v-if="hike.video" :link="hike.video" />
     </div>
     <BackButton />
   </div>
