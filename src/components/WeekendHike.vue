@@ -58,6 +58,11 @@ export default {
     return {
       skiTracks: [
         {
+          title: 'Лыжи 2026',
+          key: 'ski2026',
+          link: 'https://nakarte.me/#m=9/55.68796/37.61938&l=O&nktl=NwUsDT3p8Na-vJlRaEp1Mg',
+        },
+        {
           title: 'Лыжи 2024',
           key: 'ski2024',
           link: 'https://nakarte.me/#m=9/55.84217/37.94952&l=O&nktl=YU_Ur7WKPRYctasoL3P14g',
