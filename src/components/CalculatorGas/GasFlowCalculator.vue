@@ -140,8 +140,8 @@
 </template>
 
 <script>
-import IncompleteGasCartridge from '@/components/Calculator/IncompleteGasCartridge.vue';
-import EmpiricTable from '@/components/Calculator/EmpiricTable.vue';
+import IncompleteGasCartridge from '@/components/CalculatorGas/IncompleteGasCartridge.vue';
+import EmpiricTable from '@/components/CalculatorGas/EmpiricTable.vue';
 
 export default {
   components: {

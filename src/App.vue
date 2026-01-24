@@ -36,9 +36,14 @@ export default {
           icon: 'mdi-routes',
         },
         {
-          name: 'Калькулятор',
-          path: '/calculator',
-          icon: 'mdi-calculator',
+          name: 'Калькулятор расхода газа',
+          path: '/calculator-gas',
+          icon: 'mdi-gas-burner',
+        },
+        {
+          name: 'Калькулятор расхода топлива',
+          path: '/calculator-petrol',
+          icon: 'mdi-gas-station',
         },
         {
           name: 'ПВД',

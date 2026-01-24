@@ -10,8 +10,12 @@ const routes = [
     component: () => import('@/views/HomeView.vue'),
   },
   {
-    path: '/calculator',
-    component: () => import('@/views/CalculatorView.vue'),
+    path: '/calculator-gas',
+    component: () => import('@/views/CalculatorGasView.vue'),
+  },
+  {
+    path: '/calculator-petrol',
+    component: () => import('@/views/CalculatorPetrolView.vue'),
   },
   {
     path: '/weekendhike',
