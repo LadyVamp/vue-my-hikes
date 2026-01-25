@@ -44,18 +44,18 @@
       <v-row>
         <v-col cols="12" sm="4" md="3" lg="2">
           Израсходовано топлива
-          <p v-if="fuelConsumed > 0">{{ fuelConsumed }} л</p>
-          <p v-else>-</p>
+          <p v-if="fuelConsumed > 0 || isFinite(fuelConsumed)">{{ fuelConsumed }} л</p>
+          <p v-else>&mdash;</p>
         </v-col>
         <v-col cols="12" sm="4" md="3" lg="2">
           Стоимость
           <p v-if="price > 0">{{ price }} ₽</p>
-          <p v-else>-</p>
+          <p v-else>&mdash;</p>
         </v-col>
         <v-col cols="12" sm="4" md="3" lg="2">
           Количество дозаправок
           <p v-if="numberOfFefuelings > 0">{{ numberOfFefuelings }}</p>
-          <p v-else>-</p>
+          <p v-else>&mdash;</p>
         </v-col>
       </v-row>
     </v-form>
