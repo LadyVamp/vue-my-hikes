@@ -44,17 +44,17 @@
       <v-row>
         <v-col cols="12" sm="4" md="3" lg="2">
           Израсходовано топлива
-          <p v-if="fuelConsumed > 0 || isFinite(fuelConsumed)">{{ fuelConsumed }} л</p>
-          <p v-else>&mdash;</p>
+          <p>{{ fuelConsumed }} л</p>
         </v-col>
         <v-col cols="12" sm="4" md="3" lg="2">
           Стоимость
-          <p v-if="price > 0">{{ price }} ₽</p>
-          <p v-else>&mdash;</p>
+          <p>{{ price }} ₽</p>
         </v-col>
         <v-col cols="12" sm="4" md="3" lg="2">
           Количество дозаправок
-          <p v-if="numberOfFefuelings > 0">{{ numberOfFefuelings }}</p>
+          <p v-if="numberOfFefuelings > 0 || isFinite(numberOfFefuelings)">
+            {{ numberOfFefuelings }}
+          </p>
           <p v-else>&mdash;</p>
         </v-col>
       </v-row>
@@ -75,10 +75,10 @@ export default {
 
   computed: {
     fuelConsumed() {
-      return (this.distance / this.consumption).toFixed(2);
+      return ((this.distance * this.consumption) / 100).toFixed(2);
     },
     price() {
-      return (this.fuelConsumed * 70).toFixed(2);
+      return (this.fuelConsumed * this.pricePerLiter).toLocaleString('ru-RU');
     },
     numberOfFefuelings() {
       return Math.ceil(this.fuelConsumed / this.fuelTankCapacity);
