@@ -67,7 +67,7 @@ export default {
   data() {
     return {
       distance: 0,
-      consumption: 10,
+      consumption: 8.5,
       pricePerLiter: 70,
       fuelTankCapacity: 55,
     };
