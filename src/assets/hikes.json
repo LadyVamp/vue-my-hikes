@@ -131,6 +131,18 @@
       "report": null,
       "distance": 150,
       "type": "hiking"
+    },
+    {
+      "id": "Arkhiz-2026",
+      "name": "Архыз 2026",
+      "region": "Россия",
+      "district": "Карачаево-Черкесская Республика",
+      "date_start": "2026-06-18",
+      "date_end": "2026-06-22",
+      "track": "https://nakarte.me/#m=12/43.51960/41.19969&l=O&nktl=I-T32dzNDJ3i9-dr3nM8Lg",
+      "report": null,
+      "distance": 63,
+      "type": "hiking"
     }
   ]
 }

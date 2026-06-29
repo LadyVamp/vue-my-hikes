@@ -23,6 +23,7 @@
     <div class="d-flex flex-column">
       <LinkButton v-if="hike.report" label="Отчет" :link="hike.report" :icon="'mdi-file'" />
       <LinkButton :label="'Трек на карте'" :link="hike.track" :icon="'mdi-map-marker-multiple'" />
+      <p>UPD 29.06.26. Трек на карте открывается в режиме Инкогнито</p>
       <LinkButton label="Скачать трек" :link="`tracks/${hike.id}.kml`" :icon="'mdi-download'" />
       <YoutubeButton v-if="hike.video" :link="hike.video" />
     </div>
